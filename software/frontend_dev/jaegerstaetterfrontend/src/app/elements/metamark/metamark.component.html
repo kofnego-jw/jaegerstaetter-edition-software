@@ -1,0 +1,37 @@
+<div
+  class="metamark pointer"
+  (click)="showInfo()"
+  *ngIf="show"
+  [ngClass]="{ notEmpty: empty !== 'true' }"
+>
+  <span [tooltip]="'Hand: ' + resp" containerClass="ffji-tooltip">
+    <ng-content></ng-content>
+    <span *ngIf="empty === 'true'" [class]="rend"> | </span>
+  </span>
+</div>
+<ng-template #modal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Metamark</h4>
+  </div>
+  <div class="modal-body">
+    <p>Information zu Metamark:</p>
+    <table class="table">
+      <tr>
+        <th>Place</th>
+        <td>{{ place }}</td>
+      </tr>
+      <tr>
+        <th>Resp</th>
+        <td>{{ resp }}</td>
+      </tr>
+      <tr>
+        <th>Rend</th>
+        <td>{{ rend }}</td>
+      </tr>
+      <tr>
+        <th>Corresp</th>
+        <td>{{ corresp }}</td>
+      </tr>
+    </table>
+  </div>
+</ng-template>

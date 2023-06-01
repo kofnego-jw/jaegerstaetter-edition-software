@@ -1,0 +1,29 @@
+<div class="mainMain" *ngIf="biography">
+  <div class="columnLeft">
+    <div
+      class="fontsizeAdjustable biography"
+      [innerHTML]="safeHtml(biography.content)"
+    ></div>
+    <div class="biographyMetadata">
+      <div class="download">
+        <div class="downloadItem">
+          <a class="no_decoration" [href]="pdfLink()" target="_blank">
+            <span class="icon pointer">
+              <fa-icon [icon]="faDownload"></fa-icon>
+            </span>
+            <span class="name">Download PDF</span>
+          </a>
+        </div>
+      </div>
+      <div class="citation pointer" (click)="showCitation()">
+        ZITATION &#x201E;&#x201C;
+      </div>
+    </div>
+  </div>
+  <div class="columnRight">
+    <nav class="toc" *ngIf="showToc">
+      <h1>Inhaltsverzeichnis</h1>
+      <div [innerHTML]="safeHtml(biography.toc)"></div>
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<span style="top: -100px; position: relative" #myAnchor>&#x200B;</span>
+<a
+  *ngIf="correspInfo?.places.length"
+  [hidden]="!show"
+  [ngClass]="{ highlight: highlight }"
+  class="ffji-pb pointer floatright"
+  tooltip="Parallelstelle(n)"
+  containerClass="ffji-tooltip"
+  (click)="openCorrespModal()"
+>
+  ∥
+</a>

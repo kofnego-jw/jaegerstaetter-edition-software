@@ -1,0 +1,19 @@
+<span
+  *ngIf="show"
+  class="footnote pointer golden"
+  [ngClass]="{ highlight: highlight?.length }"
+  containerClass="ffji-tooltip"
+  (click)="showNote()"
+  [tooltip]="commentType"
+  [adaptivePosition]="false"
+>
+  <fa-icon [icon]="faPenToSquare"></fa-icon>
+</span>
+<ng-template #myModalTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ commentType }}</h4>
+  </div>
+  <div class="modal-body">
+    <div [innerHTML]="noteContent"></div>
+  </div>
+</ng-template>

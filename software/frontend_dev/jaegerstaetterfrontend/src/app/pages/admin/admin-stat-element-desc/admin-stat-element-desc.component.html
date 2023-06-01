@@ -1,0 +1,8 @@
+<div *ngIf="elementFullDesc">
+  <h3>{{ elementFullDesc.elementName }}</h3>
+  <div *ngFor="let attr of elementFullDesc.attributes">
+    <app-stat-attr-full-desc
+      [statAttrFullDesc]="attr"
+    ></app-stat-attr-full-desc>
+  </div>
+</div>

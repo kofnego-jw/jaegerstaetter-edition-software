@@ -1,0 +1,21 @@
+<div *ngIf="statReport">
+  <h2>Diplomatische Umschrift</h2>
+  <p>
+    Elemente und Attribute, die in div[@type='diplomatische_Umschrift']
+    gebraucht werden:
+  </p>
+  <app-stat-element-full-desc
+    *ngFor="let elementDesc of statReport.diplElementDescs"
+    [statElementFullDesc]="elementDesc"
+  ></app-stat-element-full-desc>
+</div>
+<div *ngIf="statReport">
+  <h2>Lesefassung</h2>
+  <p>
+    Elemente und Attribute, die in div[@type='Lesefassung'] gebraucht werden:
+  </p>
+  <app-stat-element-full-desc
+    *ngFor="let elementDesc of statReport.normElementDescs"
+    [statElementFullDesc]="elementDesc"
+  ></app-stat-element-full-desc>
+</div>

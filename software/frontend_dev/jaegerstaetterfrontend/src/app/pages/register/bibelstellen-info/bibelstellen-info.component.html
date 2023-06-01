@@ -1,0 +1,7 @@
+<div class="pb-3">
+  <h3>{{ entry.position }}</h3>
+  <app-register-anzeige
+    (viewRegistry)="onView($event)"
+    [resources]="entry.resources"
+  ></app-register-anzeige>
+</div>

@@ -1,0 +1,17 @@
+<div class="modal-body text-center">
+  <p>Sortieren nach:</p>
+  <div>
+    <div class="form-group">
+      <div>
+        <div *ngFor="let field of sortFieldList">
+          <label
+            (click)="onClose(field)"
+            class="btn"
+            [ngClass]="{ 'btn-primary': field === currentSortField }"
+            >{{ field }}</label
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

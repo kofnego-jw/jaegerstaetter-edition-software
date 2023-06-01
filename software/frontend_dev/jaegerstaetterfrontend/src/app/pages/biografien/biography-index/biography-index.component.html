@@ -1,0 +1,6 @@
+<div class="mainMain" *ngIf="commentDoc">
+  <div
+    class="fontsizeAdjustable biography"
+    [innerHTML]="safeHtml(commentDoc.content)"
+  ></div>
+</div>

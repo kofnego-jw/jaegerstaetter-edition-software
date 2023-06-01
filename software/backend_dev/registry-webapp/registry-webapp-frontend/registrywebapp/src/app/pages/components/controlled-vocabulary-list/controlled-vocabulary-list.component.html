@@ -1,0 +1,12 @@
+<div style="display: flex; flex-wrap: nowrap">
+  <ul class="list-unstyled">
+    <li class="list-item text-sm" *ngFor="let voc of controlledVocabularyList">
+      <app-controlled-vocabulary
+        [controlledVocabulary]="voc"
+      ></app-controlled-vocabulary>
+    </li>
+  </ul>
+  <button (click)="editControlledVocabularies()" class="btn btn-sm btn-primary">
+    <fa-icon [icon]="faPencilAlt"></fa-icon>
+  </button>
+</div>

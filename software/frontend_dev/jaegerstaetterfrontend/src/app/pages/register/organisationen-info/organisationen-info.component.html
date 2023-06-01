@@ -1,0 +1,21 @@
+<div *ngIf="corporation" class="registryInfo">
+  <div class="headerWithClose">
+    <h2>
+      {{ corporation.preferredName }}
+    </h2>
+    <button class="btn" (click)="close()">
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </button>
+  </div>
+  <p *ngIf="corporation.note">
+    Weitere Informationen: <span [innerHTML]="corporation.note"></span>
+  </p>
+  <p *ngIf="corporation.controlledVocabularies?.length">
+    Link zum Datensatz:
+    <a
+      [href]="authorityLink(corporation.controlledVocabularies[0])"
+      target="_blank"
+      >{{ corporation.controlledVocabularies[0] }}</a
+    >
+  </p>
+</div>

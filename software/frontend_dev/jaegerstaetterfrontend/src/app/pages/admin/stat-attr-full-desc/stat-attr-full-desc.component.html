@@ -1,0 +1,11 @@
+<div>
+  <h4 class="pointer" (click)="toggleDetails()">
+    {{ statAttrFullDesc.attributeName }}
+  </h4>
+  <div class="details" [hidden]="!showDetails">
+    <app-stat-attr-value-occ
+      *ngFor="let attrValue of statAttrFullDesc.occurrences"
+      [statAttrValueOcc]="attrValue"
+    ></app-stat-attr-value-occ>
+  </div>
+</div>

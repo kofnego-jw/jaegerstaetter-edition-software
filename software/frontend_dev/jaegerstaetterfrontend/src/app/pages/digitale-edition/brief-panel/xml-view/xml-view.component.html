@@ -1,0 +1,20 @@
+<div *ngIf="resource" class="briefAnsichtComponent" #FullComponent>
+  <div class="buttons left" *ngIf="panelPosition === PanelPosition.ONE">
+    <button class="myFullscreenButton" (click)="toggleFullscreen()"></button>
+  </div>
+  <div
+    class="innerViewPort"
+    [ngClass]="{
+      left: panelPosition === PanelPosition.ONE,
+      right: panelPosition === PanelPosition.TWO
+    }"
+  >
+    <pre
+      class="sourceCode"
+      *ngIf="xmlCodes"
+    ><code [highlight]="xmlCodes"></code></pre>
+  </div>
+  <div *ngIf="panelPosition === PanelPosition.TWO" class="buttons right">
+    <button class="myFullscreenButton" (click)="toggleFullscreen()"></button>
+  </div>
+</div>

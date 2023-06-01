@@ -1,0 +1,8 @@
+<span class="choice pointer" (click)="toggleShowCorr()">
+  <span class="original" [hidden]="showCorr">
+    <ng-content select="[sic]"></ng-content>
+  </span>
+  <span class="amended" [hidden]="!showCorr">
+    <ng-content select="[corr]"></ng-content>
+  </span>
+</span>

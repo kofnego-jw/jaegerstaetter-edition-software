@@ -1,0 +1,70 @@
+<table class="table ellipsis">
+  <thead class="stickyTop">
+    <tr>
+      <th rowspan="2" width="3%">Nr.</th>
+      <th width="15%" class="pointer" (click)="setSortField('key')">Key</th>
+      <th width="20%" class="pointer" (click)="setSortField('name')">
+        Bezeichnung (Nachname, Vorname)
+      </th>
+      <th width="20%">Heiligenlexikon</th>
+      <th width="23%" rowspan="2">Normdaten</th>
+      <th width="7%" rowspan="2">&nbsp;</th>
+    </tr>
+    <tr>
+      <th>Bevorzugte Bezeichnung</th>
+      <th>Zusätze</th>
+      <th>Rollenbezeichnungen</th>
+    </tr>
+  </thead>
+  <tbody style="height: 300px; overflow-y: auto">
+    <ng-container
+      *ngFor="let si of saintInfoListToShow; let index = index; let odd = odd"
+    >
+      <tr [ngClass]="{ odd: odd }">
+        <td rowspan="2">{{ index + 1 }}</td>
+        <td>
+          <b>{{ si.key }}</b>
+        </td>
+        <td>{{ si.title }} ({{ si.surname }}, {{ si.forename }})</td>
+        <td>
+          <a
+            *ngIf="si.encyclopediaLink"
+            target="_blank"
+            [href]="encyclopediaLink(si)"
+            >Link</a
+          >
+          <span *ngIf="!si.encyclopediaLink">Kein Link</span>
+        </td>
+        <td rowspan="2">
+          <app-controlled-vocabulary-list
+            [controlledVocabularyList]="si.controlledVocabularies"
+            [queryString]="si.stringRepresentation"
+            [type]="type"
+            [key]="si.key"
+            (preferredNameChange)="onPreferredNameChange(si, $event)"
+            (change)="onControlledVocabularyListChange(si, $event)"
+          ></app-controlled-vocabulary-list>
+        </td>
+        <td rowspan="2">
+          <button class="btn btn-sm btn-primary" (click)="editSaintInfo(si)">
+            <fa-icon [icon]="faPencilAlt"></fa-icon>
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="deleteSaintInfo(si)">
+            <fa-icon [icon]="faMinus"></fa-icon>
+          </button>
+        </td>
+      </tr>
+      <tr [ngClass]="{ odd: odd }">
+        <td>{{ si.preferredName }}</td>
+        <td>{{ si.addNameString }}</td>
+        <td>{{ si.roleNameString }}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<p>
+  <button class="btn btn-primary" (click)="addNewSaintInfo()">
+    Hinzufügen
+  </button>
+</p>

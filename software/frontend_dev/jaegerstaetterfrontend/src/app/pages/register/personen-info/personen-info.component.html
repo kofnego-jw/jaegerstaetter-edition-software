@@ -1,0 +1,36 @@
+<div *ngIf="person" class="registryInfo">
+  <div class="headerWithClose">
+    <h2>
+      {{ person.generatedOfficialName }}
+    </h2>
+    <button class="btn" (click)="close()">
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </button>
+  </div>
+  <p *ngIf="person.surname">Nachname: {{ person.surname }}</p>
+  <p *ngIf="person.forename">Vorname: {{ person.forename }}</p>
+  <p *ngIf="person.addNamesString">
+    Weitere Namen, Schreibweisen: {{ person.addNamesString }}
+  </p>
+  <p *ngIf="person.birthDate || person.birthPlace">
+    Geburt: {{ person.birthDate }}
+    <span *ngIf="person.birthPlace">in {{ person.birthPlace }}</span>
+  </p>
+  <p *ngIf="person.deathDate || person.deathPlace">
+    Tod: {{ person.deathDate }}
+    <span *ngIf="person.deathPlace">in {{ person.deathPlace }}</span>
+  </p>
+  <p *ngIf="person.note">Anmerkungen: {{ person.note }}</p>
+  <p *ngIf="person.controlledVocabularies?.length">
+    Link zum Datensatz:
+    <a
+      [href]="authorityLink(person.controlledVocabularies[0])"
+      target="_blank"
+      >{{ person.controlledVocabularies[0] }}</a
+    >
+  </p>
+  <p *ngIf="biographyAvailable">
+    Zur ausführlichen
+    <a [href]="getBiographyLink()" target="_blank">Biografie</a>
+  </p>
+</div>

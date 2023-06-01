@@ -1,0 +1,45 @@
+<div class="mainMain">
+  <div style="width: 100%">
+    <div class="fontsizeAdjustable">
+      <h1>XML Report</h1>
+      <div *ngIf="diplElementNames.length">
+        <h2>Diplomatische Umschrift</h2>
+        <div style="display: flex">
+          <div style="width: 20%; height: 70vh; overflow-y: auto">
+            <ul style="list-style: none">
+              <li *ngFor="let eleName of diplElementNames">
+                <a class="pointer" (click)="getDiplElementFullDesc(eleName)">{{
+                  eleName
+                }}</a>
+              </li>
+            </ul>
+          </div>
+          <div style="width: 79%; height: 70vh; overflow-y: auto">
+            <app-admin-stat-element-desc
+              [elementFullDesc]="diplElementFullDesc"
+            ></app-admin-stat-element-desc>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="normElementNames.length">
+        <h2>Lesefassung</h2>
+        <div style="display: flex">
+          <div style="width: 20%; height: 70vh; overflow-y: auto">
+            <ul style="list-style: none">
+              <li *ngFor="let eleName of normElementNames">
+                <a class="pointer" (click)="getNormElementFullDesc(eleName)">{{
+                  eleName
+                }}</a>
+              </li>
+            </ul>
+          </div>
+          <div style="width: 79%; height: 70vh; overflow-y: auto">
+            <app-admin-stat-element-desc
+              [elementFullDesc]="normElementFullDesc"
+            ></app-admin-stat-element-desc>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

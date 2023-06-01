@@ -1,0 +1,12 @@
+<div class="details">
+  <h3 class="pointer" (click)="toggleDetails()">
+    {{ statElementFullDesc.elementName }}
+  </h3>
+  <div [hidden]="!showDetails" class="details">
+    <h4>Attributes</h4>
+    <app-stat-attr-full-desc
+      *ngFor="let attrDesc of statElementFullDesc.attributes"
+      [statAttrFullDesc]="attrDesc"
+    ></app-stat-attr-full-desc>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<span
+  *ngIf="show"
+  class="footnote pointer golden"
+  containerClass="ffji-tooltip"
+  (click)="showInfo()"
+  [tooltip]="commentType"
+>
+  <fa-icon [icon]="faPenToSquare"></fa-icon>
+</span>
+<ng-template #myModalTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Verlinkte Ressourcen</h4>
+  </div>
+  <div class="modal-body">
+    <div [innerHTML]="myContent"></div>
+    <div *ngIf="targettype === 'internal_image'">
+      <div *ngFor="let src of mySrc">
+        <img [src]="src" style="width: 100%" />
+      </div>
+      <p>{{ target }}</p>
+    </div>
+    <div *ngIf="targettype === 'internal_link'">
+      <p *ngFor="let res of linkedSources">
+        <a [href]="getHref(res)" target="_blank">
+          {{ res.title }}
+        </a>
+      </p>
+    </div>
+    <div *ngIf="targettype === 'external_link'">
+      <p>
+        Link zu <a target="_blank" [href]="mylink">{{ mylinkText }}</a>
+      </p>
+    </div>
+  </div>
+</ng-template>

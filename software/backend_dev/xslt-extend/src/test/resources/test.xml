@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <div>
+        <p>Das ist ein Test mit Folgen.</p>
+        <p>Das ist ein Test mit Testfolgend.</p>
+        <p>das ist ein <key key="P_0001">Verweis</key>.
+        </p>
+    </div>
+</root>

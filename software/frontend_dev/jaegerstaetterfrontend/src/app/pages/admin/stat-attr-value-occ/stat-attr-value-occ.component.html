@@ -1,0 +1,11 @@
+<div *ngIf="statAttrValueOcc">
+  <pre class="pointer" (click)="toggleDetails()">{{
+    statAttrValueOcc.value ? statAttrValueOcc.value : "NONE"
+  }}</pre>
+  <div class="details" [hidden]="!showDetails">
+    <p>Vorkommen:</p>
+    <ul>
+      <li *ngFor="let occ of statAttrValueOcc.occurrences">{{ occ }}</li>
+    </ul>
+  </div>
+</div>

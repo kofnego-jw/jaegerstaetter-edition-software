@@ -1,0 +1,24 @@
+<div class="mainWholeWidth">
+  <div class="mainMain">
+    <div class="column">
+      <div class="pdGallery" *ngFor="let group of groups">
+        <h2 [innerHTML]="group.groupTitle"></h2>
+        <div class="galleryThumbs">
+          <div
+            class="imageThumb"
+            *ngFor="let item of group.items; let i = index"
+          >
+            <img
+              [src]="imageSource(group, item)"
+              [alt]="item.title"
+              [tooltip]="item.title"
+              containerClass="ffji-tooltip"
+              class="pointer"
+              (click)="showPicture(group, item)"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

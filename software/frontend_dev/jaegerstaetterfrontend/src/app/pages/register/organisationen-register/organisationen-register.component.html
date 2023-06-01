@@ -1,0 +1,50 @@
+<div class="mainMainWidth">
+  <div class="row">
+    <div class="col">
+      <h1 class="mainTitle">Organisationenregister</h1>
+    </div>
+  </div>
+</div>
+<div class="mainWholeWidth">
+  <div class="mainMain registry">
+    <div class="columnLeft">
+      <div class="registryView" *ngIf="corporationIndex">
+        <app-organisationen-info
+          [corporation]="corporationIndex.entry"
+        ></app-organisationen-info>
+        <app-register-anzeige
+          [resources]="corporationIndex.resources"
+          (viewRegistry)="onViewRegistry($event)"
+        ></app-register-anzeige>
+      </div>
+      <div *ngIf="!corporationIndex?.entry">
+        <div class="fontsizeAdjustable" [innerHTML]="registryDocContent"></div>
+      </div>
+    </div>
+    <div class="columnRight">
+      <div class="filter-form-control">
+        <label>Organisationensuche</label>
+        <input [formControl]="filterStringInput" type="text" />
+      </div>
+      <div *ngIf="viewGroups.length" class="registry-selector">
+        <accordion [closeOthers]="true" [isAnimated]="true">
+          <accordion-group
+            *ngFor="let group of viewGroups; let first = first; let last = last"
+            [isOpen]="group.groupName === selectedLetter"
+            [heading]="group.groupName"
+            [ngClass]="{ first: first, last: last }"
+            (isOpenChange)="setSelectedLetter(group.groupName)"
+          >
+            <div
+              class="registryEntryView pointer"
+              *ngFor="let entry of group.entries"
+              (click)="viewRegistry(entry.key)"
+            >
+              {{ entry.entryTitle }}
+            </div>
+          </accordion-group>
+        </accordion>
+      </div>
+    </div>
+  </div>
+</div>

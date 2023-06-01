@@ -1,0 +1,77 @@
+<div class="mainMain">
+  <h1 class="mainTitle">Suche</h1>
+</div>
+<div class="mainWholeWidth">
+  <div class="mainMain mainPanel">
+    <div class="columnLeft">
+      <div
+        class="searchResult"
+        *ngIf="searchType === SearchType.FULLTEXT && searchResult"
+      >
+        <app-document-pagination
+          [totalCount]="totalHits"
+          [fromNumber]="fromNumber"
+          [toNumber]="toNumber"
+          [sortableFields]="sortFields"
+          [sortByField]="sortField"
+          [sortAsc]="sortAsc"
+          [pageNumber]="pageNumber"
+          [pageSize]="pageSize"
+          [maxPageCount]="maxPageCount"
+          (selectPage)="setPage($event)"
+          (selectSort)="setSort($event)"
+          (changeSortDir)="setSortDir($event)"
+        ></app-document-pagination>
+        <div class="middlePanel">
+          <div class="previews">
+            <app-single-hit *ngFor="let hit of pagedHits" [hit]="hit">
+            </app-single-hit>
+          </div>
+        </div>
+      </div>
+      <div class="searchResult" *ngIf="searchType === SearchType.SIGNATURE">
+        <app-signature-synopsis></app-signature-synopsis>
+      </div>
+    </div>
+    <div class="columnRight">
+      <div class="column sticky-2">
+        <div class="registry-selector">
+          <form
+            [formGroup]="simpleSearchForm"
+            (ngSubmit)="performSimpleSearch()"
+          >
+            <div class="filter-form-control">
+              <label>Suche in allen Feldern</label>
+              <input
+                type="search"
+                class="form-control"
+                id="simpleSearch"
+                placeholder="Suchtext"
+                formControlName="simpleSearch"
+              />
+              <button class="btn" type="submit">Suche starten</button>
+            </div>
+          </form>
+        </div>
+        <div class="registry-selector" *ngIf="isPreview">
+          <div class="filter-form-control">
+            <label>Suche in Signaturen</label>
+            <button
+              class="btn"
+              type="button"
+              (click)="toggleSignatureSynopsis()"
+            >
+              <span *ngIf="searchType === SearchType.FULLTEXT">Anzeigen</span>
+              <span *ngIf="searchType === SearchType.SIGNATURE"
+                >Ausblenden</span
+              >
+            </button>
+          </div>
+        </div>
+        <div>
+          <app-search-hit-filter-control></app-search-hit-filter-control>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<footer>
+  <div id="footerMain">
+    <div class="column1">
+      <strong>Hinweise</strong>
+      <br />
+      <div class="footerLine"><a routerLink="kontakt">» Kontakt</a></div>
+      <div class="footerLine"><a routerLink="impressum">» Impressum</a></div>
+      <div class="footerLine">
+        <a routerLink="danksagung">» Danksagung</a>
+      </div>
+      <div class="footerLine">
+        <a routerLink="datenschutz">» Datenschutz</a>
+      </div>
+    </div>
+    <div class="column2">
+      <strong>Herausgeber*in</strong><br />
+
+      <div class="footerLine">
+        Dr. Andreas Schmoller, Dr.<sup>in</sup> Verena Lorber
+      </div>
+      <div class="footerLine">Franz und Franziska Jägerstätter Institut</div>
+      <div class="footerLine">Katholische Privat-Universität Linz</div>
+      <div class="footerLine">
+        <a href="mailto:ffji@ku-linz.at">ffji@ku-linz.at</a>
+      </div>
+    </div>
+    <div class="column3">
+      <a
+        target="_blank"
+        href="https://ku-linz.at/forschung/franz_und_franziska_jaegerstaetter_institut"
+        ><img
+          src="assets/images/ffji_logo_white.png"
+          alt="Logo des Franz- und Franziska Jägerstätter Instituts"
+      /></a>
+      <span class="spacer"></span>
+      <a target="_blank" href="https://ku-linz.at/"
+        ><img
+          src="assets/images/kpu_logo_white.png"
+          alt="Logo der Katholischen Privat-Universität Linz"
+      /></a>
+    </div>
+    <div class="column4">
+      <strong>Unterstützer*innen</strong>
+      <br />
+      <div class="logoLine">
+        <a target="_blank" href="https://www.dioezese-linz.at/"
+          ><img
+            src="assets/images/kkiooe_logo_white.png"
+            alt="Logo der Katholischen Kirche in Oberösterreich"
+        /></a>
+        <a target="_blank" href="https://www.land-oberoesterreich.gv.at/"
+          ><img
+            src="assets/images/ooe_logo_white.png"
+            alt="Logo des Oberösterreichs"
+        /></a>
+      </div>
+      <div class="logoLine">
+        <a target="_blank" href="https://www.ordensgemeinschaften.at/"
+          ><img
+            src="assets/images/ordenskonferenz_logo.png"
+            alt="Logo der Ordensgemeinschaft"
+        /></a>
+        <a target="_blank" href="https://www.uibk.ac.at/brenner-archiv/"
+          ><img
+            src="assets/images/fiba_logo.png"
+            alt="Logo des Forschungsinstituts Brenner-Archiv"
+        /></a>
+      </div>
+      <div class="copyrightLine">
+        © 2021 Franz und Franziska Jägerstätter Institut
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isPreview">
+    <p>
+      <button class="btn btn-sm btn-primary" routerLink="/admin">
+        Zum Admin-Bereich
+      </button>
+    </p>
+  </div>
+</footer>

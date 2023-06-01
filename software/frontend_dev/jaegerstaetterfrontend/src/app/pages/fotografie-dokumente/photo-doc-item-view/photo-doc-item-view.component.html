@@ -1,0 +1,120 @@
+<div class="mainWholeWidth" *ngIf="group && item">
+  <div class="mainMain registry">
+    <div class="columnLeft">
+      <div class="pagination-bar sticky-2">
+        <div class="hits">
+          <div class="info">
+            <span [innerHTML]="itemIndex"></span>
+            von <span [innerHTML]="group.items.length"></span>
+          </div>
+          <div class="paging">
+            <div class="fastPrev">
+              <fa-icon
+                (click)="fastPrev()"
+                [icon]="faAngleDoubleLeft"
+              ></fa-icon>
+            </div>
+            <div class="prev">
+              <fa-icon (click)="prev()" [icon]="faAngleLeft"></fa-icon>
+            </div>
+
+            <div class="pageNumber">
+              <input
+                type="number"
+                [value]="itemIndex"
+                [min]="1"
+                [max]="group.items.length"
+                (change)="gotoPage($event)"
+              />
+            </div>
+
+            <div class="next">
+              <fa-icon (click)="next()" [icon]="faAngleRight"></fa-icon>
+            </div>
+
+            <div class="fastNext">
+              <fa-icon
+                (click)="fastNext()"
+                [icon]="faAngleDoubleRight"
+              ></fa-icon>
+            </div>
+          </div>
+        </div>
+        <div class="sorting"></div>
+      </div>
+      <div class="middlePanel">
+        <div style="display: flex">
+          <div class="titleSection">
+            <h3>{{ item.title }}</h3>
+          </div>
+        </div>
+        <div class="gallery" *ngIf="imageItems.length">
+          <div class="galleryItem" *ngIf="imageItems.length === 1">
+            <img
+              style="max-width: 900px; max-height: 900px"
+              [src]="imageItems[0]?.data.thumb"
+              [alt]="item.title"
+              class="pointer"
+              (click)="showPicture(0)"
+              containerClass="ffji-tooltip"
+            />
+          </div>
+          <div class="galleryPreview" *ngIf="imageItems.length !== 1">
+            <div
+              class="galleryPreviewItem"
+              *ngFor="let imgItem of imageItems; let index = index"
+            >
+              <img
+                style="max-width: 300px; max-height: 300px"
+                [src]="imgItem.data.thumb"
+                [alt]="item.title + '(' + index + ')'"
+                class="pointer"
+                (click)="showPicture(index)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columnRight">
+      <div style="width: 210px">
+        <div class="photodocumentMetadata">
+          <h4>Metadaten</h4>
+          <div class="metadataField" *ngIf="item.signature">
+            <div class="fieldName">Signatur</div>
+            <div class="fieldContent">
+              <span [innerHTML]="item.signature"></span>
+            </div>
+          </div>
+          <div *ngIf="item.content" class="metadataField">
+            <div class="fieldName">Inhalt</div>
+            <div class="fieldContent">{{ item.content }}</div>
+          </div>
+          <div
+            *ngIf="group?.type == 'DOCUMENT' && item.pageCount"
+            class="metadataField"
+          >
+            <div class="fieldName">Umfang</div>
+            <div class="fieldContent">{{ item.pageCount }} Seite(n)</div>
+          </div>
+          <div *ngIf="item.dating" class="metadataField">
+            <div class="fieldName">Datierung</div>
+            <div class="fieldContent">{{ item.dating }}</div>
+          </div>
+          <div *ngIf="item.place" class="metadataField">
+            <div class="fieldName">Ort</div>
+            <div class="fieldContent">{{ item.place }}</div>
+          </div>
+          <div *ngIf="item.provenience" class="metadataField">
+            <div class="fieldName">Provenienz</div>
+            <div class="fieldContent">{{ item.provenience }}</div>
+          </div>
+          <div *ngIf="item.copyright" class="metadataField">
+            <div class="fieldName">Copyright</div>
+            <div class="fieldContent">{{ item.copyright }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container-fluid breadCrumbSticky" [hidden]="!show">
+  <div class="breadCrumb">
+    <div class="crumbPiece">
+      <a routerLink="/">
+        <fa-icon [icon]="faHome" class="golden"></fa-icon>
+      </a>
+    </div>
+    <div class="crumbPiece" *ngFor="let piece of crumbPieces">
+      <span class="arrow">&#x00bb;</span>
+      <a class="pointer" (click)="navigateTo(piece)">
+        {{ piece.navText }}
+      </a>
+    </div>
+  </div>
+</div>

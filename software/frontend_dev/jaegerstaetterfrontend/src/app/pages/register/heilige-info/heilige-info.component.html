@@ -1,0 +1,23 @@
+<div *ngIf="saint">
+  <div class="headerWithClose">
+    <h2>
+      {{ saint.title }}
+    </h2>
+    <button class="btn" (click)="close()">
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </button>
+  </div>
+  <p *ngIf="saint.encyclopediaLink">
+    Zum
+    <a [href]="encyclopediaLink()" target="_blank">Eintrag im Heiligenlexikon</a
+    >.
+  </p>
+  <p *ngIf="saint.controlledVocabularies?.length">
+    Link zum Datensatz:
+    <a
+      [href]="authorityLink(saint.controlledVocabularies[0])"
+      target="_blank"
+      >{{ saint.controlledVocabularies[0] }}</a
+    >
+  </p>
+</div>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>at.ku-linz.jaegerstaetter</groupId>
+        <artifactId>jaegerstaetter-backend</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <packaging>pom</packaging>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>backend-docker</artifactId>
+
+    <modules>
+        <module>../document-model</module>
+        <module>../existdb-connector</module>
+        <module>../configuration</module>
+        <module>../xmlservice</module>
+        <module>../lucene-base</module>
+        <module>../index</module>
+        <module>../xslt-extend</module>
+        <module>../xslt-stylesheets</module>
+        <module>../corresp-places</module>
+        <module>../pdf-generator</module>
+        <module>../existdb-testhelper</module>
+        <module>../existdb-edition-connector</module>
+        <module>../existdb-registry-connector</module>
+        <module>../registry-model</module>
+        <module>../vocabulary-search</module>
+        <module>../frontend-model</module>
+        <module>../registry-webapp/registry-webapp-frontend</module>
+        <module>../registry-webapp/registry-webapp-backend</module>
+
+        <module>../search</module>
+        <module>../biography</module>
+        <module>../bible-helper</module>
+        <module>../bible-registry</module>
+        <module>../formal-desc</module>
+        <module>../photodocument</module>
+        <module>../edition-admin</module>
+        <module>../../frontend_dev</module>
+        <module>../edition-webapp/edition-webapp-backend</module>
+        <module>../edition-webapp/prod-webapp-backend</module>
+        <module>../edition-webapp/preview-webapp-backend</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-files-to-dist</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <copy file="../registry-webapp/registry-webapp-backend/target/registry-webapp-backend-${project.version}.jar"
+                                      tofile="./src/registry/app/app.jar"/>
+                                <copy file="../edition-webapp/prod-webapp-backend/target/prod-webapp-backend-${project.version}.jar"
+                                      tofile="./src/edition/app/app.jar"/>
+                                <copy file="../edition-webapp/preview-webapp-backend/target/preview-webapp-backend-${project.version}.jar"
+                                      tofile="./src/preview/app/app.jar"/>
+                                <copydir src="src" dest="dist"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,38 @@
+<div class="modal-header">
+  <h4 class="modal-title">Informationen</h4>
+</div>
+<div class="modal-body">
+  <div *ngIf="entry">
+    <p>
+      {{ entry.generatedName }}
+    </p>
+    <table *ngIf="entry">
+      <tr>
+        <th>Region</th>
+        <td>{{ entry.region }}</td>
+      </tr>
+      <tr *ngIf="entry.note">
+        <th>Anmerkungen</th>
+        <td>
+          {{ entry.note }}
+        </td>
+      </tr>
+      <tr *ngIf="entry.controlledVocabularies.length">
+        <th>Link zum Datensatz</th>
+        <td>
+          <a
+            *ngFor="let link of entry.controlledVocabularies"
+            [href]="link"
+            target="_blank"
+          >
+            {{ link }}
+          </a>
+        </td>
+      </tr>
+    </table>
+    <p class="text-end">
+      Zum
+      <a class="pointer golden" (click)="gotoRegistry()">Registereintrag</a>
+    </p>
+  </div>
+</div>

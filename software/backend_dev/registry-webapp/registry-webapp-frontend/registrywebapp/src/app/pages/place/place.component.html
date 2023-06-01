@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Verzeichnis der Orte</h2>
+      <div *ngIf="placeList.length">
+        <app-place-list [placeList]="placeList"></app-place-list>
+      </div>
+      <div *ngIf="!placeList.length">
+        <p>Es gibt noch keine Einträge im Ortsregister.</p>
+      </div>
+    </div>
+  </div>
+</div>

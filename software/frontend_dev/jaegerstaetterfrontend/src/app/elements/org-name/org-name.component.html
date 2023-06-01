@@ -1,0 +1,9 @@
+<span
+  class="orgName bold-on-hover pointer"
+  [ngClass]="{ highlight: highlight === 'true', golden: show }"
+  [tooltip]="readableName"
+  (click)="showInfo()"
+  containerClass="ffji-tooltip"
+>
+  <ng-content></ng-content>
+</span>

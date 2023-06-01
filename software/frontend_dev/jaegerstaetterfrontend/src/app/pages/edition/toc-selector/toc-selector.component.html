@@ -1,0 +1,16 @@
+<div
+  class="tocSelector"
+  style="position: relative; padding-left: 5em"
+  *ngIf="tocList.toc.length"
+>
+  <div class="tocDropdown" dropdown>
+    <a class="pointer" dropdownToggle>Inhaltsverzeichnis</a>
+    <div class="dropdown-menu toc" *dropdownMenu>
+      <ul role="menu toc" aria-labelledby="basic-link">
+        <li *ngFor="let entry of tocList.toc">
+          <app-toc-entry [tocEntry]="entry"></app-toc-entry>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

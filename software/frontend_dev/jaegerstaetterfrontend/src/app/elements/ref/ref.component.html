@@ -1,0 +1,31 @@
+<span class="ffji-ref">
+  <span class="pointer golden" (click)="showInfo()">
+    <ng-content></ng-content>
+  </span>
+</span>
+<ng-template #myModalTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Verlinkte Ressourcen</h4>
+  </div>
+  <div class="modal-body">
+    <div *ngIf="targettype === 'internal_image'">
+      <img [src]="mySrc" style="width: 100%" />
+      <p>{{ target }}</p>
+    </div>
+    <div *ngIf="targettype === 'internal_link'">
+      <p *ngFor="let res of linkedSources">
+        <a [href]="getHref(res)" target="_blank">
+          {{ res.title }}
+        </a>
+      </p>
+      <p *ngFor="let res of linkedBiografies">
+        <a [href]="getBioHref(res)" target="_blank">{{ res.title }}</a>
+      </p>
+    </div>
+    <div *ngIf="targettype === 'external_link'">
+      <p>
+        Link zu <a target="_blank" [href]="mylink">{{ mylinkText }}</a>
+      </p>
+    </div>
+  </div>
+</ng-template>

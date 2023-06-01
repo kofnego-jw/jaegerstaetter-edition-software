@@ -1,0 +1,2078 @@
+@use "sass:math";
+/* This is the SCSS File for Kenon Styles */
+
+/*
+Header
+  Fonts:
+    RobotoSlab Light 39pt Color: 75,74,68: Franz & Franziska
+    Montserrat SemiBold 54pt Color: 75,74,68: JÄGERSTÄTTER EDITION
+    RobotoSlab Bold 24pt Color: 165,157,140: Startseite Digitale Edition...
+    RobotoSlab Bold/light 24pt Color: 47,89,126: DE | EN 18pt A
+
+*/
+
+/* Roboto Regular: normal text
+
+   Roboto Slab Regular: Header in main
+
+*/
+
+/*
+Variables
+*/
+
+$myDarkBlue: rgb(47, 89, 126);
+$myWhite: rgb(255, 255, 255);
+$myBlueBlack: rgb(25, 51, 75);
+$myLightGrey: rgb(243, 241, 238);
+$myDocumentBoxLightBrown: rgb(196, 188, 172);
+$myDocumentBoxBrown: rgb(182, 173, 153);
+$myLetterBrown: rgb(164, 157, 140);
+$myGrey: rgb(220, 216, 211);
+
+// $myTooltipBackgroundColor: rgb(238, 232, 233);
+$myTooltipBackgroundColor: $myDarkBlue;
+$myTooltipTextColor: rgb(63, 84, 96);
+
+$myRobotoSlab: "Roboto Slab", serif;
+$myRoboto: "Roboto", sans-serif;
+$myMontserrat: "Montserrat", sans-serif;
+$fontLight: 300;
+$fontRegular: 400;
+$fontMedium: 500;
+$fontBold: 700;
+$fontSemiBold: 600;
+$fontExtraBold: 800;
+
+// Main Width: Header and footer width
+$mainWidth: 1383px;
+
+$defaultShadow: 0px 16px 16px rgb(182, 173, 153);
+$defaultShadowNoShifting: 0px 0px 16px 0px rgb(182, 173, 153);
+
+/*
+Background: $myWhite
+*/
+$headerLineWidth: 100% * calc(1076px / $mainWidth);
+$myDarkBrown: rgb(75, 74, 68);
+$myMiddleBrown: rgb(121, 113, 103);
+$myLightBrown: rgb(165, 157, 120);
+
+// Body instructions
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+.pointer {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+// WholePage formatting
+
+#wholePage {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: $myRoboto;
+  zoom: calc(1024 / 1383); // Use this to shrink
+}
+
+// Header
+
+header {
+  #headerMain {
+    width: $mainWidth;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  #topBlueLine {
+    /* 157 - 1233, height: 14 */
+    width: $headerLineWidth;
+    height: 14px;
+    background-color: $myDarkBlue;
+  }
+
+  #headerLine {
+    display: flex;
+    .column1 {
+      width: $headerLineWidth;
+      .topLine {
+        font-family: $myRobotoSlab;
+        font-weight: $fontLight;
+        font-size: 39px;
+        margin: 31px 0 0;
+      }
+      .bottomLine {
+        font-family: $myMontserrat;
+        font-weight: $fontSemiBold;
+        font-size: 54px;
+        margin: -8px 0 5px;
+        text-transform: uppercase;
+      }
+    }
+    .column2 {
+      width: auto;
+    }
+  }
+
+  #bottomBrownLine {
+    height: 12px;
+    width: $headerLineWidth;
+    border-top: solid 5px $myDarkBrown;
+    border-bottom: solid 2px $myLightBrown;
+    margin-bottom: 8px;
+  }
+}
+
+/*
+Background: myDarKBlue
+height: 2106 - 2309
+padding: y 2141 -> 35px
+4 columns: x = 157, 377, 820, 1149, 1531
+
+Font:
+  Color: white
+  Header:
+    Montserrat Semibold 20pt All Caps: Hinweis
+  Sub:
+    Roboto Slab Regular 16px
+    Roboto Slab Bold 16px (on hover)
+*/
+footer {
+  width: 100%;
+  background-color: $myDarkBlue;
+  color: white;
+  min-height: 203px;
+  padding-top: 18px;
+  font-family: $myRobotoSlab;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 15px;
+  font-weight: 400;
+  margin-top: 8px;
+
+  strong {
+    font-family: $myMontserrat;
+    font-weight: $fontSemiBold;
+    font-size: 20px;
+    display: block;
+    text-transform: uppercase;
+  }
+
+  a,
+  span {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: inherit;
+    font-weight: $fontBold;
+  }
+
+  #footerMain {
+    width: $mainWidth;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    .footerLine {
+      margin: 0 0 8px;
+    }
+    .column1 {
+      width: 100% * calc(220px / $mainWidth);
+      min-width: 222px;
+      min-height: 203px;
+    }
+    .column2 {
+      width: 100% * calc(443px / $mainWidth);
+      min-width: 443px;
+      min-height: 203px;
+    }
+    .column3 {
+      width: 100% * calc(329px / $mainWidth);
+      min-width: 329px;
+      min-height: 203px;
+      img {
+        display: block;
+      }
+      span {
+        height: 37px;
+      }
+    }
+    .column4 {
+      width: 100% * calc(382px / $mainWidth);
+      min-width: 382px;
+      min-height: 203px;
+      .logoLine {
+        margin-top: 12px;
+        padding-left: 3px;
+        display: flex;
+        justify-content: space-between;
+        a {
+          display: inline;
+          margin: 0 15px;
+        }
+      }
+      .copyrightLine {
+        font-family: $myMontserrat;
+        font-weight: $fontSemiBold;
+        text-transform: uppercase;
+        margin-top: 14px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.breadCrumbSticky {
+  top: 68px;
+  z-index: 100;
+  position: sticky;
+  background-color: $myWhite;
+  height: 30px;
+}
+
+.breadCrumb {
+  font-family: $myRobotoSlab;
+  width: $mainWidth;
+  max-width: 100%;
+  margin: 0 auto 1.5rem;
+  font-size: 14px;
+  display: flex;
+  .crumbPiece {
+    padding-right: 0.5rem;
+    a.pointer,
+    a:visited,
+    a:link,
+    a:hover {
+      color: $myLightBrown;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .arrow {
+      color: $myDarkBlue;
+      padding-right: 0.5rem;
+    }
+  }
+}
+
+nav {
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background-color: $myWhite;
+  margin-bottom: 21px;
+  .navbar-toggle {
+    vertical-align: top;
+    height: 36px;
+  }
+  &.navbar {
+    position: sticky;
+    margin-bottom: 0;
+  }
+  #navMain {
+    width: $mainWidth;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    a,
+    a:hover,
+    a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    .navLine {
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    .column1 {
+      font-family: $myRobotoSlab;
+      font-weight: $fontBold;
+      max-width: $headerLineWidth;
+      flex-basis: $headerLineWidth;
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin: 8px 0;
+        padding: 0;
+        > li.active {
+          color: $myDarkBlue;
+        }
+        > li {
+          color: $myLightBrown;
+          margin: 0;
+          img {
+            position: relative;
+            top: -3px;
+            left: 4px;
+          }
+          ul {
+            display: list-item;
+            background-color: rgba(255, 255, 255, 0.85);
+            position: absolute;
+            padding: 0 15px 15px 15px;
+            margin: 0 -15px -15px -15px;
+            li {
+              font-family: $myRoboto;
+              font-weight: $fontMedium;
+              font-size: 18px;
+              color: $myDarkBrown;
+              padding-bottom: 10px;
+            }
+            li:first-child {
+              padding-top: 10px;
+            }
+            li.active {
+              color: $myDarkBlue;
+            }
+          }
+        }
+      }
+    }
+    .column2 {
+      padding: 8px 0 0 93px;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-basis: auto;
+      color: $myDarkBlue;
+      justify-content: space-between;
+      div {
+        cursor: pointer;
+      }
+      .language {
+        font-family: $myRoboto;
+      }
+      .active {
+        font-weight: $fontBold;
+      }
+      .fontSizeSwitch {
+        font-weight: $fontBold;
+      }
+      .contrastSwitch {
+        margin-top: -4px;
+      }
+    }
+  }
+}
+
+main {
+  min-height: 500px;
+  line-height: 150%;
+  font-family: $myRoboto;
+  hyphens: none;
+  color: $myBlueBlack;
+
+  .mainWholeWidth {
+    background-color: $myLightGrey;
+    width: 100%;
+    padding: 65px 0 200px;
+    margin: 0;
+
+    &.noPadding {
+      padding: 0;
+    }
+  }
+
+  .mainMainWidth {
+    width: $mainWidth;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .mainMain {
+    width: $mainWidth;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+
+    .columnLeft {
+      flex-basis: 1000px;
+    }
+
+    .columnRight {
+      flex-basis: 210px;
+    }
+
+    .column {
+      flex-basis: 100%;
+    }
+
+    button {
+      color: $myLightBrown;
+    }
+  }
+
+  .mainTitle {
+    padding-top: 23px;
+    margin-bottom: 26px;
+  }
+
+  hr.buttonTextSeparator {
+    margin: 110px auto 50px 0;
+    width: 550px;
+    border: 1px solid $myDarkBlue;
+  }
+
+  h1 {
+    font-family: $myRobotoSlab;
+    color: $myDarkBlue;
+  }
+
+  &#regular {
+    .fontsizeAdjustable {
+      font-size: 24px;
+    }
+  }
+
+  &#smaller {
+    .fontsizeAdjustable {
+      font-size: 16px;
+    }
+  }
+
+  .fontsizeAdjustable {
+    line-height: 150%;
+    h1 {
+      font-size: 133.3333%;
+      color: $myDarkBlue;
+      font-family: $myRobotoSlab;
+      font-weight: normal;
+      margin: 1.5em 0 2.5rem;
+
+      &.mainTitle {
+        font-size: 166.6666%;
+      }
+    }
+
+    h2,
+    h3,
+    h4 {
+      font-size: 100%;
+      font-family: $myRobotoSlab;
+      font-weight: $fontBold;
+      color: $myLightBrown;
+      margin: 2.5em 0 1.7em;
+    }
+
+    h3,
+    h4 {
+      font-weight: normal;
+      margin: 1.7em 0 1.1em;
+    }
+
+    hr.separator {
+      width: 75px;
+      color: $myDarkBlue;
+      margin: 2.5em auto 1.5em 0;
+      border: 1px solid;
+    }
+
+    a,
+    a:visited,
+    a:hover,
+    a:link {
+      color: $myDarkBlue;
+      font-weight: bold;
+    }
+
+    a.golden {
+      color: $myLightBrown;
+    }
+
+    p {
+      margin: 1.5em 0;
+    }
+  }
+
+  nav.toc {
+    // text-transform: uppercase; Mail from 20220808
+    color: $myDarkBlue;
+    position: sticky;
+    top: 90px;
+    font-weight: $fontBold;
+    margin-top: 13.5em;
+    font-size: 20px;
+    line-height: 150%;
+    z-index: 999;
+
+    h1 {
+      font-family: $myRoboto;
+      font-size: 100%;
+      font-weight: $fontBold;
+      margin-bottom: 2em;
+    }
+    ul {
+      margin-left: -32px;
+      padding-left: 32px;
+      padding-bottom: 100px;
+      border-left: 2px solid $myDarkBlue;
+      list-style: none;
+      font-size: 100%;
+      li {
+        line-height: 100%;
+        padding: 0 0 1rem 0;
+        a {
+          padding-left: 0;
+          margin: 0;
+          color: $myDarkBlue;
+          text-decoration: none;
+        }
+        a.golden {
+          color: $myLightBrown;
+        }
+        ul {
+          border: none;
+          padding: 1rem 0 0 1rem;
+          li {
+            margin: 0;
+            padding: 0 0 1rem 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.startPageSlider {
+  position: relative;
+  height: 440px;
+  width: 100%;
+  margin: 0 auto;
+  .startPageSliderBackground {
+    height: 440px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    background-size: cover;
+    background-image: url("assets/sliders/slider_background3.jpg");
+    background-position: top;
+    div {
+      height: 402px;
+    }
+    .left {
+      flex: 1;
+      display: flex;
+      justify-content: right;
+      .carpet {
+        width: 100%;
+        background: rgba(90, 87, 83, 0.3);
+      }
+      .gradient {
+        min-width: 20px;
+        max-width: 20px;
+        background: linear-gradient(
+          270deg,
+          rgba(90, 87, 83, 0.7) 0%,
+          rgba(90, 87, 83, 0.4) 50%,
+          rgba(90, 87, 83, 0.3) 100%
+        );
+      }
+    }
+    .center {
+      width: $mainWidth;
+      max-width: $mainWidth;
+      min-width: $mainWidth;
+    }
+    .right {
+      flex: 1;
+    }
+  }
+  .startPageSliderOuterDiv {
+    width: $mainWidth;
+    margin: 0 auto;
+  }
+  .startPageSliderDiv {
+    width: 1590px;
+    margin: 0 -57px 0 -157px;
+  }
+  slide {
+    div.item {
+      display: flex;
+      img {
+        padding: 0 0 0 157px;
+        height: 402px;
+      }
+      div.carousel-caption {
+        width: 1273px;
+        height: 402px;
+        color: $myDarkBlue;
+        padding: 182px 0 0 650px;
+        font-family: $myRobotoSlab;
+        font-weight: $fontLight;
+        .quote {
+          font-size: 40px;
+          text-align: right;
+          line-height: 120%;
+          font-style: italic;
+          font-weight: 500;
+        }
+        .info {
+          font-size: 16px;
+          text-align: right;
+        }
+      }
+    }
+  }
+  .carousel-indicators {
+    bottom: -50px;
+    margin-left: 55px;
+    button {
+      width: 260px;
+      height: 8px;
+      margin: 0 8px;
+      background-color: rgb(173, 169, 167);
+
+      &.active {
+        background-color: rgb(76, 75, 69);
+      }
+    }
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .carousel-control-prev-icon {
+    margin-left: -83px;
+  }
+  .carousel-control-next-icon {
+    margin-left: 161px;
+  }
+}
+
+.startPageButtons {
+  width: 552px;
+  margin-right: 50px;
+  line-height: 150%;
+
+  .startPageButton {
+    width: 552px;
+    height: 100px;
+    border-radius: 24px;
+    margin-top: 25px;
+    font-family: $myRobotoSlab;
+    color: white;
+    padding: 33px 30px;
+    font-size: 28px;
+    font-weight: $fontRegular;
+    display: flex;
+    box-shadow: $defaultShadow;
+
+    .columnLeft {
+      flex-basis: 472px;
+      margin: 0;
+      padding: 2px 0 0;
+      font-size: 30px;
+    }
+
+    .columnRight {
+      flex-basis: 20px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+.startPageLetterButtons {
+  width: 692px;
+  height: 354px;
+  margin-top: 26px;
+  margin-left: -29px;
+  padding-left: 30px;
+  background-image: url("assets/buttons/start_letter_btngroup_background.png");
+  color: $myDarkBlue;
+  font-family: $myRoboto;
+  font-weight: $fontMedium;
+  font-size: 20px;
+  text-align: center;
+
+  > div {
+    width: 627px;
+  }
+
+  .top {
+    font-family: $myRobotoSlab;
+    font-weight: $fontRegular;
+    height: 80px;
+    margin: 38px 0 0;
+    padding: 0;
+    width: 633px;
+    .topButton {
+      padding: 25px 0 7px;
+      font-size: 30px;
+      .smaller {
+        font-family: $myRoboto;
+        font-weight: $fontMedium;
+        font-size: 22px;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .middle {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 24px 0 18px;
+    .middleLeftButton {
+      padding: 24px 0;
+      flex-basis: 303px;
+      height: 80px;
+    }
+    .middleRightButton {
+      padding: 24px 0;
+      flex-basis: 303px;
+      height: 80px;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    .bottomLeftButton {
+      margin: 0;
+      height: 80px;
+      padding: 27px 0;
+      flex-basis: 303px;
+    }
+    .bottomRightButton {
+      height: 80px;
+      padding: 27px 0;
+      margin-left: 30px;
+      flex-basis: 303px;
+    }
+  }
+}
+
+.documentBoxButton {
+  height: 300px;
+  flex-basis: 294px;
+  border-radius: 12px;
+  box-shadow: $defaultShadow;
+  text-align: center;
+  margin-left: 37px;
+  margin-bottom: 97px;
+
+  .headerPart {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 130px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    img {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      border: none;
+      object-fit: cover;
+    }
+  }
+  .mainPart {
+    height: 133px;
+    background-color: $myWhite;
+    .topLine {
+      font-family: $myRoboto;
+      font-weight: $fontMedium;
+      font-size: 18px;
+      color: $myLightBrown;
+      padding-top: 17px;
+    }
+    .bottomLine {
+      font-family: $myRobotoSlab;
+      font-weight: $fontRegular;
+      font-size: 38px;
+      color: $myMiddleBrown;
+      padding-top: 20px;
+    }
+  }
+  .footerPart {
+    position: relative;
+    display: flex;
+    color: $myWhite;
+    font-family: $myRoboto;
+    font-weight: $fontMedium;
+    font-size: 18px;
+    height: 37px;
+    .btn {
+      color: $myWhite;
+      font-family: $myRoboto;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 100%;
+    }
+    .columnLeft {
+      position: relative;
+      background-color: $myDocumentBoxLightBrown;
+      flex-basis: 191px;
+      border-right: 3px solid $myWhite;
+      border-bottom-left-radius: 12px;
+    }
+    .columnRight {
+      background-color: $myDocumentBoxBrown;
+      position: relative;
+      flex-basis: 103px;
+      border-bottom-right-radius: 12px;
+    }
+    .column {
+      flex-basis: 100%;
+      background-color: $myDocumentBoxBrown;
+      border-bottom-right-radius: 12px;
+      border-bottom-left-radius: 12px;
+    }
+    .dropdown-menu.show {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  }
+}
+
+/* Fotografien und Dokumente */
+
+.pdGallery {
+  margin-bottom: 6em;
+
+  .galleryThumbs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: $mainWidth;
+
+    .imageThumb {
+      height: 200px;
+      width: 200px;
+      margin: 10px;
+      position: relative;
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 200px;
+        max-height: 200px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+/* Register */
+
+.registry {
+  .registryView {
+    width: 981px;
+    max-width: 100%;
+    background-color: $myWhite;
+    border-radius: 12px;
+    padding: 27px 30px 5px;
+    color: $myBlueBlack;
+
+    h2 {
+      font-family: $myRobotoSlab;
+      font-size: 32px;
+      font-weight: $fontMedium;
+      color: $myDarkBlue;
+      padding-bottom: 21px;
+    }
+
+    p {
+      font-family: $myRoboto;
+      font-weight: $fontRegular;
+      font-size: 21px;
+    }
+
+    .registryBottomLine {
+      height: 0;
+      width: 200px;
+      max-width: 50%;
+      border-bottom: solid 1px $myLightBrown;
+    }
+
+    .resourcesView {
+      color: $myBlueBlack;
+      background-color: $myLightGrey;
+      margin: 0 -25px;
+      padding: 25px;
+      border-bottom-right-radius: 12px;
+      border-bottom-left-radius: 12px;
+      font-size: 21px;
+      p.hitcounter {
+        font-family: $myRoboto;
+        font-weight: $fontBold;
+      }
+      .panel-default {
+        background-color: transparent;
+        border-top: solid 3px $myWhite;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+        padding: 0.5em 0 0.5em 0;
+      }
+      .panel-heading {
+        padding: 0;
+      }
+      .panel-title .btn-link {
+        font-size: 21px;
+        color: $myBlueBlack;
+        text-decoration: none;
+        padding: 7px 0 4px;
+        font-weight: $fontBold;
+      }
+      .panel-body {
+        background-color: transparent;
+        color: $myBlueBlack;
+        padding: 0;
+        font-size: 21px;
+        font-weight: $fontRegular;
+      }
+      .card-header {
+        background-color: transparent;
+        &:first-child {
+          border-bottom: none;
+        }
+      }
+      .accordion {
+        width: 100%;
+      }
+    }
+  }
+
+  .map {
+    margin-bottom: 45px;
+    border-radius: 12px;
+
+    .leaflet-tile-pane {
+      filter: grayscale(85%);
+    }
+  }
+}
+
+.registry-selector {
+  accordion,
+  .accordion {
+    width: 282px;
+    font-family: $myRoboto;
+    .first .panel.card {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      border-color: $myGrey;
+    }
+    .last .panel.card,
+    .last .panel-body {
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      border-color: $myGrey;
+    }
+    .panel-default {
+      background-color: $myDarkBlue;
+      border-color: $myGrey;
+      margin-bottom: 2px;
+    }
+    .panel-heading {
+      padding: 0;
+    }
+    .panel-title .btn-link {
+      font-size: 18px;
+      color: $myWhite;
+      text-decoration: none;
+      padding: 12px auto 12px 14px;
+    }
+    .panel-body {
+      background-color: $myWhite;
+      color: $myDarkBlue;
+      padding: 0;
+      font-size: 18px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .registryEntryView {
+      padding: 12px 14px;
+    }
+  }
+}
+
+.pb55 {
+  border-bottom: rgba(0, 0, 0, 0) solid 55px;
+}
+
+.filter-form-control {
+  margin: 0 0 28px;
+  width: 282px;
+
+  label {
+    font-family: $myRobotoSlab;
+    font-weight: $fontRegular;
+    font-size: 21px;
+    color: $myDarkBlue;
+    padding-bottom: 12px;
+  }
+
+  input {
+    width: 100%;
+    height: 44px;
+    border: none;
+    border-radius: 12px;
+    padding: 0 14px;
+    font-size: 18px;
+  }
+}
+
+/* Suche */
+
+.mainPanel .columnLeft .searchResult {
+  .previews .preview .snippet {
+    line-height: 150%;
+  }
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+/* Digitale Edition */
+
+/* Verzeichnis */
+
+ul.briefBreadcrumb,
+ul.breadcrumb {
+  font-family: $myRoboto;
+  font-weight: $fontMedium;
+  font-size: 21px;
+  color: $myLetterBrown;
+  list-style: none;
+  display: inline;
+  margin: 10px 0 40px;
+  padding: 0;
+  li {
+    margin: 0 20px 0 0;
+    padding: 0;
+    display: inline-block;
+
+    a,
+    a:hover,
+    a:visited,
+    a:link {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+
+.briefTocView {
+  margin-top: 60px;
+
+  .tocBadges {
+    display: flex;
+    width: $mainWidth + 2 * 6px;
+    margin: 0 auto;
+    height: 37px;
+    .tocBadge {
+      color: $myWhite;
+      font-family: $myRoboto;
+      font-weight: $fontMedium;
+      font-size: 21px;
+      background-color: $myDocumentBoxLightBrown;
+      height: 37px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      padding: 6px 20px;
+    }
+  }
+}
+
+.mainPanel {
+  display: flex;
+  justify-content: space-between;
+  width: $mainWidth;
+  margin: 0 auto;
+
+  .columnLeft {
+    width: 981px;
+    .topPanel {
+      font-size: 18px;
+      font-weight: $fontBold;
+      font-family: $myRoboto;
+      color: $myDarkBlue;
+      display: flex;
+      .hits {
+        text-align: left;
+        width: 50%;
+        display: flex;
+        .info {
+          // width: 188px; // To small for three or four digit numbers
+          width: 248px;
+        }
+        .paging {
+          display: flex;
+          .fastPrev,
+          .prev,
+          .next,
+          .fastNext {
+            width: 20px;
+            cursor: pointer;
+          }
+          input[type="number"] {
+            text-align: center;
+            width: 60px;
+            height: 27px;
+            font-size: 18px;
+            font-family: $myRoboto;
+            font-weight: $fontBold;
+            margin-right: 10px;
+          }
+        }
+      }
+      .sorting {
+        text-align: right;
+        width: 50%;
+        font-weight: $fontRegular;
+        .active {
+          font-weight: $fontBold;
+        }
+        .sortIcon {
+          margin-left: 20px;
+        }
+      }
+    }
+
+    .previews {
+      width: 981px;
+      margin: 40px 0 0;
+      padding: 0;
+      .preview {
+        width: 100%;
+        height: 210px;
+        min-height: 220px;
+        border-radius: 12px;
+        padding: 22px 29px 29px 29px;
+        margin-bottom: 45px;
+        background-color: $myWhite;
+        &:hover {
+          height: auto;
+          .title {
+            white-space: normal;
+            text-overflow: initial;
+          }
+          .snippet {
+            height: auto;
+            display: block;
+          }
+        }
+        .title {
+          font-family: $myRobotoSlab;
+          font-weight: $fontRegular;
+          font-size: 32px;
+          line-height: 120%;
+          color: $myDarkBlue;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          background-color: $myWhite;
+          /* &:hover {
+            white-space: normal;
+            text-overflow: initial;
+            height: auto;
+          } */
+        }
+        .snippet {
+          font-family: $myRoboto;
+          font-weight: $fontRegular;
+          font-size: 24px;
+          margin-top: 14px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+          height: 110px;
+          /* &:hover {
+            height: auto;
+          } */
+        }
+      }
+    }
+  }
+
+  .columnRight {
+    width: 287px;
+    .title {
+      font-family: $myRobotoSlab;
+      font-weight: $fontRegular;
+      font-size: 32px;
+      color: $myDarkBlue;
+    }
+    .filters {
+      margin-top: 34px;
+      font-family: $myRoboto;
+      font-weight: $fontMedium;
+      font-size: 18px;
+      .filter {
+        display: flex;
+        margin: 21px 0;
+        padding: 6px 10px 1px 10px;
+        width: 200px;
+        height: 35px;
+        border-radius: 12px;
+        background-color: $myDarkBlue;
+        color: $myWhite;
+        .text {
+          width: 155px;
+        }
+        .icon {
+          width: 20px;
+        }
+      }
+      .filterReset {
+        margin: 42px 0;
+        padding: 1px 13px 1px 18px;
+        color: $myDarkBlue;
+        background-color: rgb(248, 248, 248);
+        width: 200px;
+        height: 35px;
+        border-radius: 12px;
+      }
+      .filterList {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+    }
+  }
+}
+
+$myLetterViewWidth: $mainWidth + 2 * 90px; // 1554px
+$myLetterComponentWidth: math.div($myLetterViewWidth - 26px, 2); // 764px;
+
+main .letterView {
+  margin: 50px 0 0px;
+  width: 100%;
+  .topPanel {
+    width: min($myLetterViewWidth, 100%);
+    max-width: min($myLetterViewWidth, 100%);
+    min-height: 57px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .columnLeft {
+      margin: 0 auto;
+      flex-basis: $myLetterComponentWidth;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      background-color: $myGrey;
+      padding: 10px 90px;
+      font-family: $myRoboto;
+      font-weight: $fontBold;
+      font-size: 30px;
+      color: $myDarkBlue;
+      .icon {
+        margin-left: 75px;
+        .prev,
+        .next {
+          background-color: $myLightGrey;
+          width: 30px;
+          padding: 0 6px;
+          display: inline-block;
+          margin-right: 20px;
+        }
+      }
+    }
+    .columnRight {
+      flex-basis: $myLetterComponentWidth;
+      margin: 0 auto;
+      font-family: $myRoboto;
+      font-weight: $fontBold;
+      font-size: 18px;
+      color: $myDarkBlue;
+      background-color: transparent;
+      display: flex;
+      justify-content: flex-end;
+      .tocSelector {
+        padding: 10px 0 0 0;
+        a,
+        a:hover,
+        a:visited {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+    }
+    .currentStateHeader {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-evenly;
+      .icon {
+        margin: 0;
+      }
+    }
+  }
+  .middlePanel {
+    width: 100%;
+    background-color: $myLightGrey;
+    min-height: 804px;
+    max-height: 804px;
+    padding: 18px 0 30px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    .view {
+      width: min($myLetterViewWidth, 100%);
+      max-width: min($myLetterViewWidth, 100%);
+      margin: 0 auto;
+      min-height: 756px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      .columnLeft {
+        flex-basis: min($myLetterComponentWidth, 50%);
+        margin: 0 auto 50px;
+      }
+      .columnRight {
+        flex-basis: min($myLetterComponentWidth, 50%);
+        margin: 0 auto;
+      }
+    }
+  }
+  .bottomPanel {
+    width: 100%;
+    background-color: $myLightGrey;
+    margin-top: 20px;
+
+    .content {
+      width: 1085px;
+      margin: 0 auto 0;
+      padding: 20px 0;
+      h2 {
+        font-family: $myRobotoSlab;
+        font-weight: $fontRegular;
+        font-size: 32px;
+        color: $myDarkBlue;
+      }
+      p {
+        font-family: $myRoboto;
+        font-weight: $fontRegular;
+        font-size: 24px;
+        color: $myDarkBlue;
+      }
+
+      .bottomNav {
+        height: 38px;
+        display: flex;
+        margin: 20px auto 15px;
+        padding: 0;
+        justify-content: space-around;
+        font-family: $myRoboto;
+        font-weight: $fontBold;
+        font-size: 22px;
+        > div {
+          padding-top: 6px;
+          height: 38px;
+          position: relative;
+        }
+        .prev {
+          flex-basis: 25%;
+          text-align: center;
+          color: $myWhite;
+          .arrowContent {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: end;
+            .arrow-left-front {
+              border-top: 19px solid transparent;
+              border-bottom: 19px solid transparent;
+              border-right: 19px solid $myDarkBlue;
+              background-color: transparent;
+              width: 0;
+              height: 0;
+            }
+            .arrow-corpus {
+              background-color: $myDarkBlue;
+              display: flex;
+              flex-wrap: nowrap;
+              justify-content: center;
+              align-items: center;
+              width: min(100%, 316px);
+            }
+            .arrow-left-back {
+              border-top: 19px solid transparent;
+              border-bottom: 19px solid transparent;
+              border-right: 19px solid $myLightGrey;
+              background-color: $myDarkBlue;
+              width: 0;
+              height: 0;
+            }
+          }
+        }
+        .next {
+          flex-basis: 25%;
+          text-align: center;
+          color: $myWhite;
+          .arrowContent {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: end;
+            .arrow-right-front {
+              border-top: 19px solid transparent;
+              border-bottom: 19px solid transparent;
+              border-left: 19px solid $myDarkBlue;
+              background-color: transparent;
+              width: 0;
+              height: 0;
+            }
+            .arrow-corpus {
+              background-color: $myDarkBlue;
+              display: flex;
+              flex-wrap: nowrap;
+              justify-content: center;
+              align-items: center;
+              width: min(100%, 316px);
+            }
+            .arrow-right-back {
+              border-top: 19px solid transparent;
+              border-bottom: 19px solid transparent;
+              border-left: 19px solid $myLightGrey;
+              background-color: $myDarkBlue;
+              width: 0;
+              height: 0;
+            }
+          }
+        }
+        .icon {
+          padding: 0 20px;
+        }
+        .current {
+          flex-basis: 50%;
+          text-align: center;
+          color: $myDarkBlue;
+          text-transform: uppercase;
+          .arrowContent {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: end;
+            .arrow-left-front {
+              border-top: 19px solid transparent;
+              border-bottom: 19px solid transparent;
+              border-right: 19px solid $myGrey;
+              background-color: transparent;
+              width: 0;
+              height: 0;
+            }
+            .arrow-corpus {
+              background-color: $myGrey;
+              display: flex;
+              flex-wrap: nowrap;
+              justify-content: center;
+              align-items: center;
+              width: min(100%, 632px);
+            }
+            .arrow-right-front {
+              border-top: 19px solid transparent;
+              border-bottom: 19px solid transparent;
+              border-left: 19px solid $myGrey;
+              background-color: transparent;
+              width: 0;
+              height: 0;
+            }
+          }
+        }
+      }
+
+      .info {
+        font-family: $myRoboto;
+        font-weight: $fontRegular;
+        font-size: 19px;
+        color: $myDarkBlue;
+      }
+    }
+  }
+}
+
+.relatedLetters {
+  div {
+    padding-left: 2em;
+  }
+  a,
+  a:link,
+  a:hover,
+  a:visited {
+    color: $myLightBrown;
+    text-decoration: none;
+    font-weight: normal;
+  }
+  > p {
+    border-bottom: $myWhite solid 3px;
+  }
+}
+
+div.dropdown-menu.toc {
+  > ul {
+    list-style: none;
+    padding: 10px 0 0 10px;
+    color: $myDarkBlue;
+    max-height: 70vh;
+    overflow-y: auto;
+    font-size: 20px;
+    ul {
+      padding: 0;
+    }
+    li {
+      padding: 0.25rem 0;
+    }
+  }
+}
+
+.columnLeft .briefPanel .viewPort {
+  padding-right: 20px;
+}
+
+.columnRight .briefPanel .viewPort {
+  padding-left: 20px;
+}
+
+main .briefPanel {
+  height: 756px;
+
+  .viewSwitch {
+    height: 43px;
+    flex-basis: min($myLetterComponentWidth, 50%);
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .switchItem {
+      display: inline-block;
+      height: 36px;
+      padding: 4px 34px;
+      background-color: $myWhite;
+      color: $myDarkBlue;
+      font-family: $myRoboto;
+      font-weight: $fontBold;
+      font-size: 20px;
+      &:first-child {
+        border-top-left-radius: 12px;
+      }
+      &:last-child {
+        border-top-right-radius: 12px;
+      }
+      &.active {
+        background-color: $myDarkBlue;
+        color: $myWhite;
+      }
+    }
+  }
+
+  .viewPort {
+    height: 713px;
+    margin: 0 0 33px;
+    padding: 29px 0 21px;
+    background-color: $myWhite;
+    .briefAnsichtComponent {
+      display: flex;
+      justify-content: space-between;
+    }
+    .buttons {
+      width: 35px;
+      height: 100px;
+      position: sticky;
+      top: 80px;
+      button {
+        width: 35px;
+        height: 34px;
+        border: none;
+        &.myFullscreenButton {
+          background-image: url("assets/openseadragon/images_kenon/fullpage_rest.png");
+        }
+      }
+    }
+
+    .innerViewPort {
+      margin: 0;
+
+      .textView {
+        margin: 0;
+        padding: 0 30px 0 0;
+        height: 672px;
+        width: 696px;
+        overflow-x: auto;
+      }
+
+      pre.sourceCode {
+        margin: 0;
+        padding: 0;
+        code {
+          margin: 0;
+          padding: 0;
+          height: 672px;
+          width: 696px;
+          background-color: $myWhite;
+        }
+      }
+    }
+  }
+
+  .briefAnsichtComponent:fullscreen {
+    background-color: $myWhite;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    padding: 0 1vw;
+    .innerViewPort {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      height: 100%;
+      pre.sourceCode code {
+        width: 100%;
+        height: 100%;
+      }
+      .textView {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+main .photodocumentMetadata {
+  .metadataField {
+    margin: 14px 0;
+    .fieldName {
+      font-family: $myRoboto;
+      font-weight: $fontBold;
+      color: $myDarkBlue;
+    }
+    .fieldContent {
+      font-family: $myRoboto;
+      font-weight: $fontLight;
+      color: $myBlueBlack;
+    }
+  }
+}
+
+main .metadata {
+  width: 1085px;
+  margin: 77px auto 0;
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    font-family: $myRobotoSlab;
+    font-weight: $fontRegular;
+    font-size: 32px;
+    color: $myDarkBlue;
+  }
+
+  .metadataField {
+    margin: 28px 0;
+    .fieldName {
+      font-family: $myRoboto;
+      font-weight: $fontBold;
+      font-size: 24px;
+      color: $myDarkBlue;
+    }
+    .fieldContent {
+      font-family: $myRoboto;
+      font-weight: $fontLight;
+      font-size: 24px;
+      color: $myDarkBlue;
+      line-height: 135%;
+    }
+  }
+
+  .columnLeft {
+    width: 610px;
+  }
+  .columnRight {
+    width: 398px;
+  }
+}
+
+.ffji-pb {
+  cursor: pointer;
+  scroll-margin: 80px 0;
+}
+
+.sticky-2 {
+  z-index: 99;
+  position: sticky;
+  top: 50px;
+  background-color: $myLightGrey;
+  padding-bottom: 10px;
+}
+
+.anchorScrollIntoView {
+  position: absolute;
+  margin-top: -20vh;
+}
+
+.scrollTopMarker {
+  scroll-padding-top: 200px;
+}
+
+.myAnnotationViewToggleButton {
+  background-color: #ddd8d3;
+  fa\-icon {
+    &.ALL {
+      // TODO
+      color: black;
+    }
+    &.COMMENTS {
+      // TODO
+      color: grey;
+    }
+    &.NONE {
+      color: white;
+    }
+  }
+}
+
+pre.wrap {
+  white-space: normal;
+}
+
+.pagination-bar {
+  margin-top: -57px;
+  padding-top: 57px;
+  font-size: 18px;
+  font-weight: $fontBold;
+  font-family: $myRoboto;
+  color: $myDarkBlue;
+  display: flex;
+  justify-content: space-between;
+  .hits {
+    text-align: left;
+    flex-basis: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    .info {
+      // width: 188px; // To small for three or four digit numbers
+      flex-basis: 248px;
+    }
+    .paging {
+      flex-basis: 200px;
+      display: flex;
+      flex-wrap: nowrap;
+      .fastPrev,
+      .prev,
+      .next,
+      .fastNext {
+        flex-basis: 20px;
+        cursor: pointer;
+      }
+      input[type="number"] {
+        text-align: center;
+        width: 60px;
+        height: 27px;
+        font-size: 18px;
+        font-family: $myRoboto;
+        font-weight: $fontBold;
+        margin-right: 10px;
+      }
+    }
+  }
+  .sorting {
+    position: relative;
+    font-weight: $fontRegular;
+    .active {
+      font-weight: $fontBold;
+    }
+    .sortIcon {
+      margin-left: 20px;
+    }
+  }
+
+  a,
+  a:hover,
+  a:visited {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+  }
+}
+
+.sort-dropdown-menu.dropdown-menu {
+  color: $myDarkBlue;
+}
+
+/* Tooltip */
+.ffji-tooltip {
+  position: absolute;
+  .tooltip-inner {
+    background-color: $myTooltipBackgroundColor;
+    color: $myWhite;
+    padding: 0.4rem 0.3rem;
+    margin: 0;
+    //text-align: left;
+    //display: flex;
+    font-family: $myRoboto;
+    font-size: 16px;
+    border-radius: 12px;
+    //box-shadow: 0 0 1.5rem 0 rgba(0.5,0.5,0.5,0.9);
+    box-shadow: $defaultShadowNoShifting;
+  }
+  &.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: $myTooltipBackgroundColor;
+  }
+  &.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: $myTooltipBackgroundColor;
+  }
+  &.bs-tooltip-end .tooltip-arrow::before {
+    border-right-color: $myTooltipBackgroundColor;
+  }
+  &.bs-tooltip-start .tooltip-arrow::before {
+    border-left-color: $myTooltipBackgroundColor;
+  }
+}
+
+.notVisible {
+  visibility: hidden;
+}
+
+.headerWithClose {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+a.no_decoration {
+  text-decoration: none;
+  color: inherit;
+}
+
+main .fontsizeAdjustable .commentDoc {
+  a,
+  a:link,
+  a:visited,
+  a:hover {
+    color: $myLightBrown;
+    font-weight: normal;
+  }
+}
+.commentDoc {
+  p {
+    clear: both;
+  }
+}
+
+.biography-index {
+  display: flex;
+  .bio-index-left {
+    flex-basis: 1000px;
+    > ffji\-div {
+      display: block;
+      width: calc(100% + 210px);
+    }
+    .bio-index-figure {
+      padding-left: 2em;
+    }
+  }
+  .bio-index-right {
+    background-color: $myLightGrey;
+    flex-basis: 210px;
+    flex: 1;
+  }
+}
+
+.special-corresp-index {
+  display: flex;
+  .bio-index-left {
+    flex-basis: 1000px;
+    padding-right: 2em;
+    > ffji\-div {
+      display: block;
+    }
+    .bio-index-figure {
+      padding-left: 2em;
+    }
+  }
+  .bio-index-right {
+    background-color: $myLightGrey;
+    flex-basis: 210px;
+    flex: 1;
+  }
+}
+
+.biography,
+.special-corresp-index,
+.biography-index,
+.commentDoc {
+  text-align: justify;
+  padding-bottom: 2rem;
+  color: $myDarkBlue;
+  .biographyText {
+    a,
+    a:link,
+    a:visited,
+    a:hover {
+      color: $myLightBrown;
+      font-weight: normal;
+    }
+  }
+  .figure {
+    float: right;
+    margin: 0 0 1rem 1rem;
+    right: 0;
+    text-align: center;
+    font-size: small;
+    color: $myDarkBrown;
+    position: relative;
+    line-height: 115%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 500px;
+    img.img-fluid {
+      margin-bottom: 0.5rem;
+      align-self: center;
+      height: calc(100% - 30px - 0.5rem);
+    }
+    .figDesc {
+      max-width: 290px;
+      align-self: center;
+      font-size: 120%;
+    }
+  }
+  .biographyFootnote {
+    font-size: 70%;
+    vertical-align: top;
+    top: -7px;
+    position: relative;
+  }
+  .biography_footnote {
+    display: flex;
+    .counter {
+      flex: 1;
+    }
+    .footnote_content {
+      flex: 19;
+      p {
+        margin: 0;
+      }
+      a,
+      a:link,
+      a:visited,
+      a:hover {
+        color: $myLightBrown;
+        font-weight: normal;
+      }
+    }
+  }
+  .bold {
+    font-weight: bold;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .superscript {
+    font-size: 50%;
+    vertical-align: super;
+  }
+  .subscript {
+    font-size: 60%;
+    vertical-align: sub;
+  }
+  .author {
+    font-family: $myRobotoSlab;
+    color: $myDarkBlue;
+    top: -33px;
+    position: relative;
+    font-size: 90%;
+  }
+  .golden {
+    color: $myLightBrown;
+  }
+  table {
+    border: 1px solid $myLightGrey;
+    td,
+    th {
+      border: 1px solid $myLightGrey;
+      padding: 5px;
+      vertical-align: top;
+    }
+    th {
+      font-weight: bold;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.biographyMetadata {
+  width: 220px;
+  padding-bottom: 2rem;
+  margin: 0 auto;
+}
+
+.download {
+  margin: 56px 0;
+  h3 {
+    font-family: $myRobotoSlab;
+    font-weight: $fontSemiBold;
+    font-size: 26px;
+    color: $myDarkBlue;
+  }
+  .downloadItem {
+    margin-top: 40px;
+    .icon {
+      margin-right: 40px;
+    }
+    .name {
+      font-family: $myRoboto;
+      font-weight: $fontBold;
+      font-size: 24px;
+      color: $myDarkBlue;
+    }
+  }
+}
+
+.citation {
+  font-family: $myRoboto;
+  font-weight: $fontBold;
+  font-size: 24px;
+  color: $myWhite;
+  background-color: $myDarkBlue;
+  text-align: center;
+  width: 190px;
+  height: 35px;
+  border-radius: 12px;
+  padding-top: 5px;
+}
+
+.signature-synopsis {
+  th,
+  td {
+    border: solid 1px #555;
+    padding: 0 0.5em;
+  }
+}
+
+.deprecated {
+  background-color: yellow;
+}
+
+div.details {
+  padding-left: 2rem;
+}

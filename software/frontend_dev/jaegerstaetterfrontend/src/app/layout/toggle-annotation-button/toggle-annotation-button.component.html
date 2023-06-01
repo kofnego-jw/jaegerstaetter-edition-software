@@ -1,0 +1,15 @@
+<button
+  class="myAnnotationViewToggleButton"
+  [tooltip]="annotationTooltip"
+  containerClass="ffji-tooltip"
+  (click)="toggleAnnotationView()"
+>
+  <fa-icon
+    [icon]="faPen"
+    [ngClass]="{
+      ALL: annotationLevel === AnnotationViewEnum.ALL,
+      COMMENTS: annotationLevel === AnnotationViewEnum.COMMENTS,
+      NONE: annotationLevel === AnnotationViewEnum.NONE
+    }"
+  ></fa-icon>
+</button>

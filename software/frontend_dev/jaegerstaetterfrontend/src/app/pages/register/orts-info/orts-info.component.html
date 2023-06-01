@@ -1,0 +1,19 @@
+<div class="registryInfo" *ngIf="place">
+  <div class="headerWithClose">
+    <h2>
+      {{ place.preferredName }}
+    </h2>
+    <button class="btn" (click)="close()">
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </button>
+  </div>
+  <p *ngIf="place.region">Region: {{ place.region }}</p>
+  <p *ngIf="place.controlledVocabularies?.length">
+    Link zum Datensatz:
+    <a
+      [href]="authorityLink(place.controlledVocabularies[0])"
+      target="_blank"
+      >{{ place.controlledVocabularies[0] }}</a
+    >
+  </p>
+</div>

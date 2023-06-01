@@ -1,0 +1,15 @@
+<div class="content">
+  <h2 *ngIf="currentResource.type === 'LETTER'">Zusammenhängende Briefe</h2>
+  <h2 *ngIf="currentResource.type === 'DOCUMENT'">Dokumente in Beziehungen</h2>
+  <div class="relatedLetters">
+    <p *ngFor="let related of currentResource.allRelatedLetters">
+      <a
+        [href]="createHref(related)"
+        target="ffji-extra"
+        *ngIf="related.id !== currentResource.id"
+        >{{ related.title }}</a
+      >
+      <span *ngIf="related.id === currentResource.id">{{ related.title }}</span>
+    </p>
+  </div>
+</div>

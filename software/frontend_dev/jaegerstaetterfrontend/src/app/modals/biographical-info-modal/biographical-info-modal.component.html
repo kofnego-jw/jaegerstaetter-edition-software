@@ -1,0 +1,48 @@
+<div class="modal-header">
+  <h4 class="modal-title">Informationen</h4>
+</div>
+<div class="modal-body">
+  <div *ngFor="let entry of entries; let last = last">
+    <table>
+      <tr>
+        <th>Familiename</th>
+        <td>{{ entry.surname }}</td>
+      </tr>
+      <tr>
+        <th>Vorname</th>
+        <td>{{ entry.forename }}</td>
+      </tr>
+      <tr *ngIf="entry.addNames?.length">
+        <th>Weitere Namen, Schreibweisen</th>
+        <td>
+          <span *ngFor="let add of entry.addNames">{{ add }} </span>
+        </td>
+      </tr>
+      <tr *ngIf="entry.birthDate">
+        <th>Geburt</th>
+        <td>
+          {{ entry.birthDate }} in
+          {{ entry.birthPlace ? entry.birthPlace : "?" }}
+        </td>
+      </tr>
+      <tr *ngIf="entry.deathDate">
+        <th>Tod</th>
+        <td>
+          {{ entry.deathDate }} in
+          {{ entry.deathPlace ? entry.deathPlace : "?" }}
+        </td>
+      </tr>
+      <tr *ngIf="entry.note">
+        <th>Anmerkungen</th>
+        <td>{{ entry.note }}</td>
+      </tr>
+    </table>
+    <p class="text-end">
+      Zum
+      <a class="pointer golden" (click)="gotoRegistry(entry)"
+        >Registereintrag</a
+      >
+    </p>
+    <hr *ngIf="!last" />
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div
+  class="preview pointer fontsizeAdjustable"
+  [title]="viewResourceUrl()"
+  (click)="navigateTo()"
+>
+  <div class="title" [innerHTML]="resource.title"></div>
+  <div class="snippet" [innerHTML]="resource.summary"></div>
+</div>

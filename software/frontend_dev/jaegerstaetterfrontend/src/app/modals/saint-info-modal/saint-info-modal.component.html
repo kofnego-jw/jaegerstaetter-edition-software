@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h4 class="modal-title">Informationen</h4>
+</div>
+<div class="modal-body">
+  <div *ngFor="let entry of entries">
+    <p>{{ entry.generatedName }}</p>
+    <table>
+      <tr>
+        <th>Link zum Lexikon</th>
+        <td>
+          <a
+            [href]="safeUrl(entry.encyclopediaLink)"
+            target="_blank"
+            [innerHTML]="addZeroWidthSpaces(entry.encyclopediaLink)"
+          ></a>
+        </td>
+      </tr>
+    </table>
+    <p class="text-end">
+      Zum
+      <a class="pointer golden" (click)="gotoRegistry(entry)"
+        >Registereintrag</a
+      >
+    </p>
+  </div>
+</div>

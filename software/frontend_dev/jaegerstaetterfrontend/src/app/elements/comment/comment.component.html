@@ -1,0 +1,6 @@
+<span class="pointer comment" (click)="toggleShowComment()">
+  <ng-content select="[text]"></ng-content>
+</span>
+<div class="commentsection" [hidden]="!showComment">
+  <ng-content select="[comment]"></ng-content>
+</div>

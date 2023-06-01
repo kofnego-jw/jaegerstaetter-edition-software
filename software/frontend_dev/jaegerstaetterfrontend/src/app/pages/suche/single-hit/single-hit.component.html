@@ -1,0 +1,8 @@
+<div
+  class="preview pointer"
+  [title]="viewResourceUrl()"
+  (click)="viewResource()"
+>
+  <div class="title" [innerHTML]="hit.resource.title"></div>
+  <div class="snippet" [innerHTML]="hit.previewText()"></div>
+</div>

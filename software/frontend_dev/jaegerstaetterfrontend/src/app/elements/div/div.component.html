@@ -1,0 +1,9 @@
+<span style="top: -100px; position: relative" #myBeginAnchor>&#x200B;</span>
+<div *ngIf="initFinished" class="ffji-notehand" containerClass="ffji-tooltip">
+  <div *ngIf="handInfo">
+    {{ handInfo }}
+    <hr />
+  </div>
+  <ng-content></ng-content>
+</div>
+<span style="top: -100px; position: relative" #myEndAnchor>&#x200B;</span>

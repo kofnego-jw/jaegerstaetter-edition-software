@@ -1,0 +1,80 @@
+<div *ngIf="resource">
+  <div class="mainMainWidth">
+    <h1 class="mainTitle" [innerHTML]="resource.title"></h1>
+  </div>
+
+  <div class="letterView">
+    <div class="topPanel">
+      <div class="columnLeft" *ngIf="currentState.totalCount">
+        <app-resource-list-current-state-view
+          [currentState]="currentState"
+          [resourceListState]="resourceListState"
+          *ngIf="currentState.totalCount"
+        ></app-resource-list-current-state-view>
+      </div>
+      <div
+        class="columnLeft"
+        style="background-color: transparent"
+        *ngIf="!currentState.totalCount"
+      ></div>
+      <div class="columnRight">
+        <div class="tocSelector" style="position: relative">
+          <div
+            class="tocDropdown"
+            [ngClass]="{ deprecated: viewOldVersion }"
+            dropdown
+          >
+            <fa-icon
+              *ngIf="viewOldVersion"
+              [icon]="faTriangleExclamation"
+            ></fa-icon>
+            <a class="pointer" dropdownToggle>{{ versionString }}</a>
+            <div class="dropdown-menu toc" *dropdownMenu>
+              <ul role="menu" aria-labelledby="basic-link">
+                <li *ngFor="let ver of resource.versions">
+                  <a
+                    class="dropdown-item pointer"
+                    (click)="setVersion(ver.versionNumber)"
+                    >{{ getVersionString(ver) }}</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <app-page-selector></app-page-selector>
+        <app-toc-selector></app-toc-selector>
+      </div>
+    </div>
+    <div class="middlePanel">
+      <div class="view">
+        <div class="columnLeft" *ngIf="!(useSingle$ | async)">
+          <app-brief-panel
+            [panelPosition]="PanelPosition.ONE"
+            [activeView]="getLeftView()"
+          ></app-brief-panel>
+        </div>
+        <div class="columnRight">
+          <app-brief-panel
+            [panelPosition]="PanelPosition.TWO"
+            [activeView]="getRightView()"
+          ></app-brief-panel>
+        </div>
+      </div>
+    </div>
+    <div
+      class="bottomPanel"
+      *ngIf="
+        resource.prevLetters.length ||
+        resource.relatedLetters.length ||
+        resource.nextLetters.length
+      "
+    >
+      <app-related-resources></app-related-resources>
+    </div>
+  </div>
+
+  <div class="mainMainWidth">
+    <app-metadata-view></app-metadata-view>
+  </div>
+</div>

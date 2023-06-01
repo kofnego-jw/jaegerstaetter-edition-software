@@ -1,0 +1,71 @@
+<div class="modal-header">
+  <h2>Information zum Ort</h2>
+</div>
+<div class="modal-body text-center">
+  <div class="row">
+    <div class="col">
+      <form (submit)="submitForm()" [formGroup]="placeInfoForm">
+        <table class="table layoutFixed">
+          <tr>
+            <th width="20%">Key</th>
+            <td width="40%" [innerHTML]="placeInfo.key"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="key" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Bevorzugte Ortsbezeichnung</th>
+            <td width="40%" [innerHTML]="placeInfo.preferredName"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="preferredName" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Ortsbezeichnung</th>
+            <td width="40%" [innerHTML]="placeInfo.locationName"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="locationName" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Region</th>
+            <td width="40%" [innerHTML]="placeInfo.region"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="region" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Längengrad</th>
+            <td width="40%" [innerHTML]="placeInfo.geoLocation?.longitude"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="longitude" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Breitengrad</th>
+            <td width="40%" [innerHTML]="placeInfo.geoLocation?.latitude"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="latitude" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Anmerkung</th>
+            <td width="40%" [innerHTML]="placeInfo.note"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="note" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">To do</th>
+            <td width="40%" [innerHTML]="placeInfo.todo"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="todo" />
+            </td>
+          </tr>
+        </table>
+        <button class="btn btn-primary" type="submit">Aktualisieren</button>
+        <button class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
+      </form>
+    </div>
+  </div>
+</div>

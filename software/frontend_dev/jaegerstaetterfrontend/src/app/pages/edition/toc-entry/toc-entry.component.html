@@ -1,0 +1,6 @@
+<a class="pointer" (click)="scrollToId()">{{ tocEntry.title }}</a>
+<ul *ngIf="tocEntry.children.length">
+  <li *ngFor="let entry of tocEntry.children">
+    <app-toc-entry [tocEntry]="entry"></app-toc-entry>
+  </li>
+</ul>

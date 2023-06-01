@@ -1,0 +1,101 @@
+<app-startpage-slider></app-startpage-slider>
+<div class="mainMain">
+  <div style="display: flex; flex-wrap: wrap; width: 100%; padding-top: 24px">
+    <div class="startPageButtons">
+      <div
+        class="startPageButton pointer"
+        style="
+          background-image: url('assets/buttons/start_jaegerstaetter_background.png');
+        "
+        (click)="navigateTo('/biografien/ffaj')"
+      >
+        <span class="columnLeft"> Franz &amp; Franziska Jägerstätter </span>
+        <span class="columnRight">
+          <fa-icon [icon]="faChevronRight"></fa-icon>
+        </span>
+      </div>
+      <div
+        class="startPageButton pointer"
+        style="
+          background-image: url('assets/buttons/start_dokumente_background.png');
+        "
+        (click)="navigateTo('/fotografien-dokumente/')"
+      >
+        <span class="columnLeft"> Fotografien &amp; Dokumente </span>
+        <span class="columnRight">
+          <fa-icon [icon]="faChevronRight"></fa-icon>
+        </span>
+      </div>
+      <div
+        routerLink="/register"
+        class="startPageButton pointer"
+        style="
+          background-image: url('assets/buttons/start_register_background.png');
+        "
+      >
+        <span class="columnLeft"> Register </span>
+        <span class="columnRight">
+          <fa-icon [icon]="faChevronRight"></fa-icon>
+        </span>
+      </div>
+    </div>
+    <div class="startPageLetterButtons text-center">
+      <div class="top">
+        <div class="topButton pointer" (click)="navigateToGesamtverzeichnis()">
+          Schriften
+          <span class="smaller"> Gesamtverzeichnis </span>
+        </div>
+      </div>
+      <div class="middle">
+        <div
+          class="middleLeftButton pointer"
+          [routerLink]="['/edition/verzeichnis']"
+          [queryParams]="{ corpus: 'von' }"
+        >
+          Schriften von Jägerstätter
+          <fa-icon [icon]="faArrowRight"></fa-icon>
+        </div>
+        <div
+          class="middleRightButton pointer"
+          [routerLink]="['/edition/verzeichnis']"
+          [queryParams]="{ corpus: 'an' }"
+        >
+          Briefe an Jägerstätter
+          <fa-icon [icon]="faArrowLeft"></fa-icon>
+        </div>
+      </div>
+      <div class="bottom">
+        <div
+          class="bottomLeftButton pointer"
+          [routerLink]="['/edition/verzeichnis']"
+          [queryParams]="{ corpus: 'ueber' }"
+        >
+          Briefe über Jägerstätter
+          <fa-icon [icon]="faRedo"></fa-icon>
+        </div>
+        <div
+          class="bottomRightButton pointer"
+          [routerLink]="['/edition/ausgewaehlte-briefwechsel']"
+        >
+          Ausgewählte Briefwechsel
+          <div style="position: relative; display: inline">
+            <fa-icon [icon]="faArrowLeft"></fa-icon>
+            <div style="position: relative; left: -10px; display: inline">
+              <fa-icon [icon]="faArrowRight"></fa-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mainMain">
+  <div class="columnLeft">
+    <hr class="buttonTextSeparator" />
+    <div
+      class="fontsizeAdjustable"
+      *ngIf="startDoc"
+      [innerHTML]="startDoc.content"
+    ></div>
+  </div>
+</div>

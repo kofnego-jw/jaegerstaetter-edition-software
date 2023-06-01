@@ -1,0 +1,30 @@
+<div>
+  <h4>Liste der Signaturen</h4>
+  <div class="input" style="padding: 2em 0">
+    <input [formControl]="filterControl" type="text" class="form-control" />
+  </div>
+  <table class="signature-synopsis">
+    <thead>
+      <tr>
+        <th width="20%">Dateiname</th>
+        <th width="15%">Alte Signatur</th>
+        <th width="15%">Neue Signatur</th>
+        <th width="45%">Titel</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of shownList">
+        <td>{{ res.id }}</td>
+        <td>{{ res.altSignature }}</td>
+        <td>{{ res.signature }}</td>
+        <td>{{ res.title }}</td>
+        <td>
+          <button class="btn btn-sm" (click)="showResource(res)">
+            <fa-icon [icon]="faArrowLeft"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

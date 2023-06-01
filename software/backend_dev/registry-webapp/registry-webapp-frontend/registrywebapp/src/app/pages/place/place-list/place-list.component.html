@@ -1,0 +1,59 @@
+<table class="table table-hover ellipsis">
+  <thead class="stickyTop">
+    <tr>
+      <th width="10%" class="pointer" (click)="setSortField('key')">Key</th>
+      <th width="15%">Bevorzugter Name</th>
+      <th width="15%" class="pointer" (click)="setSortField('name')">
+        Ortsname
+      </th>
+      <th width="15%">Region</th>
+      <th width="15%">Koordinaten</th>
+      <th width="23%">Normdaten</th>
+      <th width="7%">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody style="height: 300px; overflow-y: auto">
+    <ng-container
+      *ngFor="let pi of placeListToShow; let index = index; let odd = odd"
+    >
+      <tr [ngClass]="{ odd: odd }">
+        <td [tooltip]="pi.key">
+          <b>{{ pi.key }}</b>
+        </td>
+        <td [tooltip]="pi.preferredName" [innerHTML]="pi.preferredName"></td>
+        <td [tooltip]="pi.locationName">{{ pi.locationName }}</td>
+        <td [innerHTML]="pi.region"></td>
+        <td>
+          <app-geo-location [placeInfo]="pi"></app-geo-location>
+        </td>
+        <td>
+          <app-controlled-vocabulary-list
+            [controlledVocabularyList]="pi.controlledVocabularies"
+            [queryString]="pi.stringRepresentation"
+            [type]="type"
+            [key]="pi.key"
+            (change)="onControlledVocabularyListChange(pi, $event)"
+            (preferredNameChange)="onPreferredNameChange(pi, $event)"
+          ></app-controlled-vocabulary-list>
+        </td>
+        <td>
+          <button
+            class="btn btn-sm btn-primary"
+            (click)="openPlaceInfoModal(pi)"
+          >
+            <fa-icon [icon]="faPencilAlt"></fa-icon>
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="deletePlaceInfo(pi)">
+            <fa-icon [icon]="faMinus"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<p>
+  <button class="btn btn-primary" (click)="addNewPlaceInfo()">
+    Hinzufügen
+  </button>
+</p>

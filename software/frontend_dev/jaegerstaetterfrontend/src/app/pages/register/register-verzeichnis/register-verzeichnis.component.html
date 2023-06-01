@@ -1,0 +1,253 @@
+<div class="mainMain">
+  <h1 class="mainTitle">Register</h1>
+</div>
+<div class="mainWholeWidth">
+  <div class="mainMain">
+    <div class="columnLeft">
+      <div style="display: flex; flex-wrap: wrap; margin-left: -45px">
+        <div class="documentBoxButton" *ngIf="persons.length">
+          <div class="headerPart pointer" routerLink="personen">
+            <img
+              src="assets/buttons/person-register.png"
+              alt="Button caption image"
+            />
+          </div>
+          <div class="mainPart pointer" routerLink="personen">
+            <div class="topLine">{{ persons.length }}</div>
+            <div class="bottomLine">Personen</div>
+          </div>
+          <div class="footerPart">
+            <div class="columnLeft">
+              <button class="btn btn-blank" routerLink="personen">
+                Alle Einträge
+              </button>
+            </div>
+            <div class="columnRight" dropdown>
+              <button
+                id="person-alpha-dropdown"
+                dropdownToggle
+                class="btn dropdown-toggle btn-blank"
+                aria-controls="dropdown-person"
+              >
+                A <span class="caret"></span>
+              </button>
+              <ul
+                id="dropdown-person"
+                *dropdownMenu
+                class="dropdown-menu"
+                role="menu"
+                aria-labelledby="person-alpha-dropdown"
+              >
+                <li
+                  *ngFor="let l of createDropdownItems(persons)"
+                  role="menuitem"
+                >
+                  <a
+                    class="dropdown-item"
+                    routerLink="personen"
+                    [queryParams]="{ select: l }"
+                    >{{ l }}</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="documentBoxButton" *ngIf="places.length">
+          <div class="headerPart pointer" routerLink="orte">
+            <img
+              src="assets/buttons/ort-register.png"
+              alt="Button caption image"
+            />
+          </div>
+          <div class="mainPart pointer" routerLink="orte">
+            <div class="topLine">{{ places.length }}</div>
+            <div class="bottomLine">Orte</div>
+          </div>
+          <div class="footerPart">
+            <div class="columnLeft">
+              <button class="btn btn-blank" routerLink="orte">
+                Alle Einträge
+              </button>
+            </div>
+            <div class="columnRight" dropdown>
+              <button
+                id="place-alpha-dropdown"
+                dropdownToggle
+                class="btn dropdown-toggle btn-blank"
+                aria-controls="dropdown-place"
+              >
+                A <span class="caret"></span>
+              </button>
+              <ul
+                id="dropdown-place"
+                *dropdownMenu
+                class="dropdown-menu"
+                role="menu"
+                aria-labelledby="place-alpha-dropdown"
+              >
+                <li
+                  *ngFor="let l of createDropdownItems(places)"
+                  role="menuitem"
+                >
+                  <a
+                    class="dropdown-item"
+                    routerLink="orte"
+                    [queryParams]="{ select: l }"
+                    >{{ l }}</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="documentBoxButton" *ngIf="corporations.length">
+          <div class="headerPart pointer" routerLink="organisationen">
+            <img
+              src="assets/buttons/organisation-register.png"
+              alt="Button caption image"
+            />
+          </div>
+          <div class="mainPart pointer" routerLink="organisationen">
+            <div class="topLine">{{ corporations.length }}</div>
+            <div class="bottomLine">Organisationen</div>
+          </div>
+          <div class="footerPart">
+            <div class="columnLeft">
+              <button class="btn btn-blank" routerLink="organisationen">
+                Alle Einträge
+              </button>
+            </div>
+            <div class="columnRight" dropdown>
+              <button
+                id="corporation-alpha-dropdown"
+                dropdownToggle
+                class="btn dropdown-toggle btn-blank"
+                aria-controls="dropdown-corporation"
+              >
+                {{ createDropdownItems(corporations)[0] }}
+                <span class="caret"></span>
+              </button>
+              <ul
+                id="dropdown-corporation"
+                *dropdownMenu
+                class="dropdown-menu"
+                role="menu"
+                aria-labelledby="corporation-alpha-dropdown"
+              >
+                <li
+                  *ngFor="let l of createDropdownItems(corporations)"
+                  role="menuitem"
+                >
+                  <a
+                    class="dropdown-item"
+                    routerLink="organisationen"
+                    [queryParams]="{ select: l }"
+                    >{{ l }}</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="documentBoxButton" *ngIf="saints.length">
+          <div class="headerPart pointer" routerLink="heilige">
+            <img
+              src="assets/buttons/heilige-register.png"
+              alt="Button caption image"
+            />
+          </div>
+          <div class="mainPart pointer" routerLink="heilige">
+            <div class="topLine">{{ saints.length }}</div>
+            <div class="bottomLine">Heilige</div>
+          </div>
+          <div class="footerPart">
+            <div class="columnLeft">
+              <button class="btn btn-blank" routerLink="heilige">
+                Alle Einträge
+              </button>
+            </div>
+            <div class="columnRight" dropdown>
+              <button
+                id="saint-alpha-dropdown"
+                dropdownToggle
+                class="btn dropdown-toggle btn-blank"
+                aria-controls="dropdown-saint"
+              >
+                {{ createDropdownItems(saints)[0] }} <span class="caret"></span>
+              </button>
+              <ul
+                id="dropdown-saint"
+                *dropdownMenu
+                class="dropdown-menu"
+                role="menu"
+                aria-labelledby="saint-alpha-dropdown"
+              >
+                <li
+                  *ngFor="let l of createDropdownItems(saints)"
+                  role="menuitem"
+                >
+                  <a
+                    class="dropdown-item"
+                    routerLink="heilige"
+                    [queryParams]="{ select: l }"
+                    >{{ l }}</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="documentBoxButton" *ngIf="bibleBooks.length">
+          <div class="headerPart pointer" routerLink="bibelstellen">
+            <img
+              src="assets/buttons/bibelstelle-register.png"
+              alt="Button caption image"
+            />
+          </div>
+          <div class="mainPart pointer" routerLink="bibelstellen">
+            <div class="topLine">{{ biblePositionCounter() }}</div>
+            <div class="bottomLine">Bibelstellen</div>
+          </div>
+          <div class="footerPart">
+            <div class="columnLeft">
+              <button class="btn btn-blank" routerLink="bibelstellen">
+                Alle Einträge
+              </button>
+            </div>
+            <div class="columnRight" dropdown>
+              <button
+                id="biblepassage-alpha-dropdown"
+                dropdownToggle
+                class="btn dropdown-toggle btn-blank"
+                aria-controls="dropdown-biblepassage"
+              >
+                A <span class="caret"></span>
+              </button>
+              <ul
+                id="dropdown-biblepassage"
+                *dropdownMenu
+                class="dropdown-menu"
+                role="menu"
+                aria-labelledby="biblepassage-alpha-dropdown"
+              >
+                <li *ngFor="let l of bibleBooks" role="menuitem">
+                  <a
+                    class="dropdown-item"
+                    routerLink="bibelstellen"
+                    [queryParams]="{ key: l.book }"
+                    >{{ l.book }}</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

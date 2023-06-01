@@ -1,0 +1,60 @@
+<table class="table table-hover ellipsis">
+  <thead class="stickyTop">
+    <tr>
+      <th width="5%">Nr.</th>
+      <th width="15%" class="pointer" (click)="setSortField('key')">Key</th>
+      <th width="15%">Bevorzugter Name</th>
+      <th width="15%" class="pointer" (click)="setSortField('name')">
+        Organisation
+      </th>
+      <th width="35%">Anmerkung</th>
+      <th width="23%">Normdaten</th>
+      <th width="7%">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody style="height: 300px; overflow-y: auto">
+    <ng-container
+      *ngFor="let ci of corporationListToShow; let index = index; let odd = odd"
+    >
+      <tr [ngClass]="{ odd: odd }">
+        <td>{{ index + 1 }}</td>
+        <td [tooltip]="ci.key">
+          <b>{{ ci.key }}</b>
+        </td>
+        <td [innerHTML]="ci.preferredName" [tooltip]="ci.preferredName"></td>
+        <td [tooltip]="ci.organisation">{{ ci.organisation }}</td>
+        <td [innerHTML]="ci.note" [tooltip]="ci.note"></td>
+        <td>
+          <app-controlled-vocabulary-list
+            [controlledVocabularyList]="ci.controlledVocabularies"
+            [queryString]="ci.organisation"
+            [type]="type"
+            [key]="ci.key"
+            (preferredNameChange)="onPreferredNameChange(ci, $event)"
+            (change)="onControlledVocabularyListChange(ci, $event)"
+          ></app-controlled-vocabulary-list>
+        </td>
+        <td>
+          <button
+            class="btn btn-sm btn-primary"
+            (click)="editCorporationInfo(ci)"
+          >
+            <fa-icon [icon]="faPencilAlt"></fa-icon>
+          </button>
+          <button
+            class="btn btn-sm btn-danger"
+            (click)="deleteCorporationInfo(ci)"
+          >
+            <fa-icon [icon]="faMinus"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<p>
+  <button class="btn btn-primary" (click)="addNewCorporationInfo()">
+    Hinzufügen
+  </button>
+</p>

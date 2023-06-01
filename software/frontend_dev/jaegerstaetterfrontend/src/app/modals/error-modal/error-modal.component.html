@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Error</h4>
+  <button
+    type="button"
+    class="btn-close close pull-right"
+    aria-label="Close"
+    (click)="close()"
+  >
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>Es tut uns leid, ein Fehler ist passiert.</p>
+  <p>Hier ist die Fehlermeldung:</p>
+  <pre class="wrap" [innerHTML]="message"></pre>
+</div>
+<div class="modal-footer">
+  <button type="cancel" (click)="close()" class="btn">Okay</button>
+</div>

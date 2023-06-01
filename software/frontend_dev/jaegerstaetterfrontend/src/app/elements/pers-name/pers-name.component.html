@@ -1,0 +1,10 @@
+<span
+  class="persName pointer bold-on-hover"
+  [ngClass]="{ highlight: highlight === 'true', golden: show }"
+  [tooltip]="readableName"
+  containerClass="ffji-tooltip"
+  [adaptivePosition]="false"
+  (click)="showInfo()"
+>
+  <ng-content></ng-content>
+</span>

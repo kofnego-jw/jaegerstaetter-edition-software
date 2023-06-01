@@ -1,0 +1,29 @@
+<div class="currentStateHeader">
+  <div class="icon">
+    <button
+      class="btn btn-sm"
+      (click)="prev()"
+      type="button"
+      [hidden]="!currentState.hasPrev"
+    >
+      <span class="prev">
+        <fa-icon [icon]="faAngleLeft"></fa-icon>
+      </span>
+    </button>
+  </div>
+  <div class="counter">
+    {{ currentState.currNumber + 1 }} / {{ currentState.totalCount }}
+  </div>
+  <div class="icon">
+    <button
+      class="btn btn-sm"
+      (click)="next()"
+      type="button"
+      [hidden]="!currentState.hasNext"
+    >
+      <span class="next">
+        <fa-icon [icon]="faAngleRight"></fa-icon>
+      </span>
+    </button>
+  </div>
+</div>

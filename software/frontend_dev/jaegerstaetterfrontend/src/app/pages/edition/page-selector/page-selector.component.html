@@ -1,0 +1,16 @@
+<div
+  class="tocSelector"
+  style="position: relative; padding-left: 5em"
+  *ngIf="facsimileIds.length"
+>
+  <div class="tocDropdown" dropdown>
+    <a class="pointer" dropdownToggle>Seite {{ currentPage }}</a>
+    <div class="dropdown-menu toc" *dropdownMenu>
+      <ul role="menu toc" aria-labelledby="basic-link">
+        <li *ngFor="let fac of facsimileIds">
+          <a class="dropdown-item pointer" (click)="showPage(fac)">{{ fac }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

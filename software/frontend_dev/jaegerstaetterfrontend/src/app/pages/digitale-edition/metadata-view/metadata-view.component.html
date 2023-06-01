@@ -1,0 +1,112 @@
+<div class="metadata" *ngIf="summary">
+  <div class="columnLeft">
+    <h2>Metadaten</h2>
+
+    <div class="metadataField" *ngIf="msIdentifier?.get('RepositorySignatur')">
+      <div class="fieldName">Repository / Signatur</div>
+      <div class="fieldContent">
+        <span [innerHTML]="msIdentifier?.get('RepositorySignatur')"></span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="correspDesc?.get('Absender:innen')">
+      <div class="fieldName">Verfasser*in</div>
+      <div class="fieldContent">
+        <span [innerHTML]="correspDesc?.get('Absender:innen')"></span>
+        <span *ngIf="correspDesc?.get('Absendeort')">
+          (<span [innerHTML]="correspDesc.get('Absendeort')"></span>)
+        </span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="correspDesc?.get('Empfänger:innen')">
+      <div class="fieldName">Empfänger*in</div>
+      <div class="fieldContent">
+        <span [innerHTML]="correspDesc?.get('Empfänger:innen')"></span>
+        <span *ngIf="correspDesc?.get('Empfangsort')">
+          (<span [innerHTML]="correspDesc.get('Empfangsort')"></span>)
+        </span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="correspDesc?.get('Absendedatum')">
+      <div class="fieldName">Datum</div>
+      <div class="fieldContent">
+        <span [innerHTML]="correspDesc?.get('Absendedatum')"></span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="history?.get('Datierung')">
+      <div class="fieldName">Datierung</div>
+      <div class="fieldContent">
+        <span [innerHTML]="history?.get('Datierung')"></span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="correspDesc?.get('Zusatz')">
+      <div class="fieldName">Zusatz</div>
+      <div class="fieldContent">
+        <span [innerHTML]="correspDesc?.get('Zusatz')"></span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="summary">
+      <div class="fieldName">Zusammenfassung</div>
+      <div class="fieldContent" [innerHTML]="summary"></div>
+    </div>
+    <div class="metadataField" *ngIf="physDesc?.get('Schrifttyp')">
+      <div class="fieldName">Schrifttyp</div>
+      <div class="fieldContent">
+        <span [innerHTML]="physDesc?.get('Schrifttyp')"></span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="physDesc?.get('Materialität')">
+      <div class="fieldName">Materialität</div>
+      <div class="fieldContent">
+        <span [innerHTML]="physDesc?.get('Materialität')"></span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="physDesc?.get('Umfang')">
+      <div class="fieldName">Umfang</div>
+      <div class="fieldContent">
+        <span [innerHTML]="physDesc?.get('Umfang')"></span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="history?.get('Provenienz')">
+      <div class="fieldName">Provenienz</div>
+      <div class="fieldContent">
+        <span [innerHTML]="history?.get('Provenienz')"></span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="history?.get('Anmerkungen')">
+      <div class="fieldName">Anmerkungen</div>
+      <div class="fieldContent">
+        <span [innerHTML]="history?.get('Anmerkungen')"></span>
+      </div>
+    </div>
+    <div class="metadataField" *ngIf="respStmt?.get('Editionshinweise')">
+      <div class="fieldName">Editionshinweise</div>
+      <div class="fieldContent">
+        <span [innerHTML]="safeHtml(respStmt?.get('Editionshinweise'))"></span>
+      </div>
+    </div>
+  </div>
+  <div class="columnRight">
+    <h2>Download</h2>
+    <div class="download">
+      <div class="downloadItem">
+        <a class="no_decoration" [href]="pdfUrl()" target="_blank">
+          <span class="icon pointer">
+            <fa-icon [icon]="faDownload"></fa-icon>
+          </span>
+          <span class="name">Lesefassung PDF</span>
+        </a>
+      </div>
+      <div class="downloadItem">
+        <a class="no_decoration" [href]="xmlUrl()" target="_blank">
+          <span class="icon">
+            <fa-icon [icon]="faDownload"></fa-icon>
+          </span>
+          <span class="name">XML</span>
+        </a>
+      </div>
+    </div>
+    <div class="citation pointer" (click)="showCitation()">
+      ZITATION &#x201E;&#x201C;
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Verzeichnis der Heiligen</h2>
+      <div *ngIf="saintList.length">
+        <app-saint-list [saintList]="saintList"></app-saint-list>
+      </div>
+      <div *ngIf="!saintList.length">
+        <p>Es gibt noch keine Einträge im Verzeichnis der Heiligen.</p>
+      </div>
+    </div>
+  </div>
+</div>

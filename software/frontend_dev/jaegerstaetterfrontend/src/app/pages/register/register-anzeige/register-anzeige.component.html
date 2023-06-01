@@ -1,0 +1,22 @@
+<div class="resourcesView" *ngIf="resources && resources.length">
+  <p class="hitcounter">
+    {{ resources.length | number: "3.0-0" }}&nbsp;{{
+      resources.length < 2 ? "EINTRAG" : "EINTRÄGE"
+    }}
+  </p>
+  <div
+    class="panel panel-default"
+    *ngFor="let res of resources; let last = last"
+    [ngClass]="{ last: last }"
+  >
+    <div
+      accordion-heading
+      class="previewHeading pointer"
+      (click)="viewResource(res)"
+    >
+      <span class="title">
+        {{ res.title }}
+      </span>
+    </div>
+  </div>
+</div>

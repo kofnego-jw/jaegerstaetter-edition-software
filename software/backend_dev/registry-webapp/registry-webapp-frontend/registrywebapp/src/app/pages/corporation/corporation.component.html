@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Organisationen</h2>
+      <div *ngIf="corporationList.length">
+        <app-corporation-list
+          [corporationList]="corporationList"
+        ></app-corporation-list>
+      </div>
+      <div *ngIf="!corporationList.length">
+        <p>Es gibt noch keine Einträge im Register der Organisationen.</p>
+      </div>
+    </div>
+  </div>
+</div>

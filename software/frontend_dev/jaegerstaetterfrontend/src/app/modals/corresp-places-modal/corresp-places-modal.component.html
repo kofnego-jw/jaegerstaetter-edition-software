@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title">Parallelstelle(n)</h4>
+</div>
+<div class="modal-body">
+  <ul>
+    <li *ngFor="let di of correspInfo.places">
+      <a
+        [href]="correspPlaceLink(di)"
+        target="_blank"
+        [innerHTML]="filenameToTitle(di)"
+      ></a>
+    </li>
+  </ul>
+</div>

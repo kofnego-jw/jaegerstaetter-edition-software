@@ -1,0 +1,54 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
+  style="height: 72px"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Register</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/start"
+            >Start</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/person"
+            >Personen</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/saint"
+            >Heilige</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/corporation"
+            >Organisationen</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/place"
+            >Orte</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/map"
+            >Weltkarte</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/publish"
+            >Veröffentlichen</a
+          >
+        </li>
+      </ul>
+      <app-key-filter></app-key-filter>
+    </div>
+  </div>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>

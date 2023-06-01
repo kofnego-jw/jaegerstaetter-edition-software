@@ -1,0 +1,58 @@
+<div class="mainMainWidth">
+  <div class="row">
+    <h1 class="mainTitle">Bibelstellenregister</h1>
+  </div>
+</div>
+<div class="mainWholeWidth">
+  <div class="mainMain registry">
+    <div class="columnLeft">
+      <div class="registryView" *ngIf="indexEntry?.book?.book">
+        <div class="headerWithClose">
+          <h2>{{ indexEntry.book.book }}</h2>
+          <button class="btn" (click)="close()">
+            <fa-icon [icon]="faTimes"></fa-icon>
+          </button>
+        </div>
+        <div *ngFor="let pos of indexEntry.entries" (view)="onView($event)">
+          <app-bibelstellen-info
+            [entry]="pos"
+            (view)="onView($event)"
+          ></app-bibelstellen-info>
+        </div>
+      </div>
+      <div *ngIf="!indexEntry?.book?.book">
+        <div class="fontsizeAdjustable" [innerHTML]="registryDocContent"></div>
+      </div>
+    </div>
+    <div class="columnRight">
+      <div *ngIf="bibleBooks.length" class="registry-selector">
+        <div class="accordion">
+          <div
+            [ngClass]="{ first: first, last: last }"
+            *ngFor="let book of bibleBooks; let first = first; let last = last"
+          >
+            <div class="panel card panel-default">
+              <div role="tab" class="panel-heading card-header panel-enabled">
+                <div
+                  class="panel-title"
+                  routerLink="/register/bibelstellen"
+                  [queryParams]="{ key: book.book }"
+                >
+                  <div
+                    role="button"
+                    class="accordion-toggle"
+                    aria-expanded="false"
+                  >
+                    <button type="button" class="btn btn-link">
+                      {{ book.book }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

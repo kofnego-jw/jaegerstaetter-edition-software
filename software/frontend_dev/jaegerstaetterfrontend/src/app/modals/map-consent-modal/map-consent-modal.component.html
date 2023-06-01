@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">OpenStreetMap Anzeigen</h4>
+  <button
+    type="button"
+    class="btn-close close pull-right"
+    aria-label="Close"
+    (click)="selectNo()"
+  >
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>
+    Wollen Sie die eingebundene Karte anzeigen und damit Daten aus
+    <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>
+    laden? Sie können diese Entscheidung jederzeit widerrufen.
+  </p>
+  <p>
+    Bitte lesen Sie hierzu auch die
+    <a [routerLink]="['/datenschutz']" (click)="close()">Datenschutzerklärung</a
+    >.
+  </p>
+</div>
+<div class="modal-footer">
+  <button class="btn" (click)="selectNo()">
+    Nein, die Karte nicht anzeigen
+  </button>
+  <button class="btn" (click)="selectYes()">Ja, die Karte anzeigen</button>
+</div>

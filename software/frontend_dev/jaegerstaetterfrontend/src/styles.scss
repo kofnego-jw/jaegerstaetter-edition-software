@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+
+@import "bootstrap/scss/bootstrap-reboot.scss";
+@import "bootstrap/scss/bootstrap.scss";
+@import "highlight.js/styles/github.css";
+@import "@angular/cdk/overlay-prebuilt.css";
+@import "leaflet/dist/leaflet.css";
+@import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+
+@import "@fontsource/montserrat/100.css";
+@import "@fontsource/montserrat/200.css";
+@import "@fontsource/montserrat/300.css";
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/600.css";
+@import "@fontsource/montserrat/700.css";
+@import "@fontsource/montserrat/800.css";
+@import "@fontsource/montserrat/900.css";
+@import "@fontsource/montserrat/100-italic.css";
+@import "@fontsource/montserrat/200-italic.css";
+@import "@fontsource/montserrat/300-italic.css";
+@import "@fontsource/montserrat/400-italic.css";
+@import "@fontsource/montserrat/500-italic.css";
+@import "@fontsource/montserrat/600-italic.css";
+@import "@fontsource/montserrat/700-italic.css";
+@import "@fontsource/montserrat/800-italic.css";
+@import "@fontsource/montserrat/900-italic.css";
+@import "@fontsource/roboto/100.css";
+@import "@fontsource/roboto/300.css";
+@import "@fontsource/roboto/400.css";
+@import "@fontsource/roboto/500.css";
+@import "@fontsource/roboto/700.css";
+@import "@fontsource/roboto/900.css";
+@import "@fontsource/roboto/100-italic.css";
+@import "@fontsource/roboto/300-italic.css";
+@import "@fontsource/roboto/400-italic.css";
+@import "@fontsource/roboto/500-italic.css";
+@import "@fontsource/roboto/700-italic.css";
+@import "@fontsource/roboto/900-italic.css";
+@import "@fontsource/roboto-slab/100.css";
+@import "@fontsource/roboto-slab/200.css";
+@import "@fontsource/roboto-slab/300.css";
+@import "@fontsource/roboto-slab/400.css";
+@import "@fontsource/roboto-slab/500.css";
+@import "@fontsource/roboto-slab/600.css";
+@import "@fontsource/roboto-slab/700.css";
+@import "@fontsource/roboto-slab/800.css";
+@import "@fontsource/roboto-slab/900.css";
+
+/* Importing Datepicker SCSS file. */
+// @import "~ngx-bootstrap/datepicker/bs-datepicker";
+
+// @import "./fonts_local.css";
+
+@import "./kenon.scss";
+@import "./brief.scss";

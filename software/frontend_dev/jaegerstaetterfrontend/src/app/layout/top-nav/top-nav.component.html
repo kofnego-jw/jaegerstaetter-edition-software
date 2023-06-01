@@ -1,0 +1,122 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <div id="navMain">
+      <button
+        type="button"
+        class="navbar-toggle btn d-lg-none d-md-block d-sm-block"
+        (click)="toggleCollapsed()"
+        aria-expanded="false"
+      >
+        <fa-icon [icon]="faBars"></fa-icon>
+      </button>
+      <div class="navbar-collapse collapse navLine" [collapse]="isCollapsed">
+        <div class="column1">
+          <ul class="nav navbar-nav d-block d-sm-block d-md-flex">
+            <li routerLinkActive="active">
+              <a class="pointer" (mouseenter)="showSubMenu('sub2')"
+                >Digitale Edition</a
+              >
+              <div
+                [hidden]="!subMenuShown || subMenuShown !== 'sub2'"
+                (mouseleave)="hideSubMenu()"
+              >
+                <ul>
+                  <li routerLinkActive="active">
+                    <a
+                      class="pointer"
+                      [routerLink]="['/edition/verzeichnis']"
+                      [queryParams]="{ corpus: 'gesamt' }"
+                      >Schriften (Gesamtverzeichnis)</a
+                    >
+                  </li>
+                  <li routerLinkActive="active">
+                    <a class="pointer" routerLink="/fotografien-dokumente"
+                      >Fotografien &amp; Dokumente</a
+                    >
+                  </li>
+                  <li
+                    *ngFor="let item of deMenuItems"
+                    routerLinkActive="active"
+                  >
+                    <a [routerLink]="'digitale-edition/' + item.id">{{
+                      item.displayName
+                    }}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li routerLinkActive="active">
+              <a class="pointer" (mouseenter)="showSubMenu('sub4')"
+                >Biografien</a
+              >
+              <div
+                [hidden]="!subMenuShown || subMenuShown !== 'sub4'"
+                (mouseleave)="hideSubMenu()"
+              >
+                <ul *ngIf="bgMenuItems.length">
+                  <li *ngFor="let bg of bgMenuItems" routerLinkActive="active">
+                    <a
+                      [routerLink]="['biografien/' + bg.filename]"
+                      [innerHTML]="bg.title"
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="register">Register</a>
+            </li>
+            <li routerLinkActive="active">
+              <a class="pointer" (mouseenter)="showSubMenu('sub5')"
+                >Materialien</a
+              >
+              <div
+                [hidden]="!subMenuShown || subMenuShown !== 'sub5'"
+                (mouseleave)="hideSubMenu()"
+              >
+                <ul *ngIf="maMenuItems.length">
+                  <li
+                    *ngFor="let item of maMenuItems"
+                    routerLinkActive="active"
+                  >
+                    <a [routerLink]="'materialien/' + item.id">{{
+                      item.displayName
+                    }}</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://ku-linz.at/forschung/franz_und_franziska_jaegerstaetter_institut/bibliografie"
+                      target="_blank"
+                      >Bibliografie</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li routerLinkActive="active">
+              <a routerLink="suche"
+                >Suche
+                <fa-icon [icon]="faSearch" flip="horizontal"></fa-icon>
+                <!-- <img src="assets/images/magnifying_glass.png" alt="Search Icon"
+              /> --></a
+              >
+            </li>
+          </ul>
+        </div>
+        <div
+          class="column2 navbar-collapse collapse d-block d-sm-block d-md-flex"
+        >
+          <div class="languageSwitch">
+            <app-language-switcher></app-language-switcher>
+          </div>
+          <div class="fontSizeSwitch">
+            <app-font-size-switcher></app-font-size-switcher>
+          </div>
+          <div class="contrastSwitch">
+            <app-contrast-switcher></app-contrast-switcher>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

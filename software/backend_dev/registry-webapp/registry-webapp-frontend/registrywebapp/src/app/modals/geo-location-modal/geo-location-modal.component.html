@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{ placeInfo.locationName }}</h4>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col">
+      <div
+        style="height: 300px"
+        leaflet
+        [leafletOptions]="options"
+        [leafletLayers]="layers"
+        (leafletMapReady)="onMapReady($event)"
+      ></div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn float-right btn-secondary" (click)="close()">
+    Schließen
+  </button>
+</div>

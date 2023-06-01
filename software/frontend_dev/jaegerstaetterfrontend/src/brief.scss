@@ -1,0 +1,218 @@
+/* Alle SCSS Regel für Brief-Darstellungen sollen hier geschrieben werden. */
+.modal-content {
+  color: $myDarkBlue;
+  text-align: left;
+
+  .modal-header {
+    background-color: $myDarkBlue;
+    line-height: 100%;
+    padding: 0.25rem 1rem;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      color: $myWhite;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  button {
+    color: $myDarkBlue;
+  }
+
+  a,
+  a:link,
+  a:visited,
+  button:hover {
+    color: $myLightBrown;
+    text-decoration: none;
+  }
+
+  td,
+  th {
+    text-align: left;
+    vertical-align: top;
+    &:first-child {
+      width: 33%;
+    }
+  }
+}
+
+.textView,
+.modal-body {
+  .tei h2 {
+    margin-top: 0;
+  }
+  .linebreak {
+    color: $myDarkBrown;
+  }
+  .footnote {
+    color: $myDarkBrown;
+    font-size: 70%;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.45em;
+    font-weight: bold;
+    padding-left: 2px;
+  }
+
+  ffji\-pb {
+    float: right;
+    clear: right;
+  }
+
+  .floatright {
+    float: right;
+    clear: right;
+  }
+
+  .ffji-pb {
+    color: $myDarkBrown;
+    font-size: 70%;
+    vertical-align: baseline;
+    top: -0.45em;
+    left: 30px;
+    position: relative;
+    padding-right: 0.5em;
+
+    &.breakBefore {
+      display: block;
+    }
+  }
+
+  .metamark {
+    color: $myLightBrown;
+    font-size: smaller;
+  }
+  .surplus {
+    text-decoration: line-through;
+  }
+  .del {
+    text-decoration: line-through;
+  }
+  .red {
+    color: red;
+  }
+  .damage {
+    background-color: lightgray;
+  }
+  .green {
+    color: green;
+  }
+  .golden {
+    color: $myLightBrown;
+  }
+  .bold-on-hover:hover {
+    text-decoration: underline;
+  }
+  .bg-golden {
+    background-color: #dbd3af; // TODO
+  }
+  .smaller {
+    font-size: smaller;
+  }
+  .superscript {
+    font-size: 70%;
+    vertical-align: baseline;
+    font-weight: bold;
+    position: relative;
+    top: -0.45em;
+  }
+  .subscript {
+    font-size: 70%;
+    vertical-align: sub;
+  }
+  .underline {
+    text-decoration: underline;
+  }
+  .unclear {
+    font-size: 85%;
+  }
+  .gap {
+    background-color: $myLightGrey;
+  }
+  .gap.del {
+    color: green;
+  }
+  .ffji-notehand {
+    // filter: brightness(2);
+  }
+  .quote {
+    font-style: italic;
+  }
+  .supplied {
+    color: red;
+  }
+  .surplus {
+    color: red;
+  }
+  .ffji-choice {
+    background-color: $myLightGrey;
+  }
+  .ffji-sic,
+  .ffji-abbr {
+    text-decoration: line-through red;
+  }
+  .writing_session {
+    padding-bottom: 2em;
+  }
+  .note {
+    font-size: smaller;
+    padding-top: 1em;
+  }
+
+  &.showAnnotations {
+    .choice {
+      .original {
+        color: red;
+      }
+      .amended {
+        color: green;
+      }
+    }
+    .metamark {
+      color: purple;
+      &.notEmpty {
+        float: right;
+      }
+    }
+    .comment {
+      // background-color: lightskyblue;
+      color: blue;
+      text-decoration: underline;
+    }
+    .supplied {
+      background-color: pink;
+    }
+    .opener,
+    .closer {
+      background-color: lightyellow;
+    }
+    .commentsection {
+      border-top: 1px solid $myDarkBrown;
+      border-bottom: 1px solid $myDarkBrown;
+      font-size: 90%;
+      margin: 2em 0;
+      padding: 0 0 0 20%;
+    }
+    .damage {
+      color: red;
+      background-color: lightgrey;
+    }
+    .persName {
+      color: blue;
+      text-decoration: underline;
+    }
+    .placeName {
+      color: blue;
+      text-decoration: underline;
+    }
+  }
+  .backgroundgrey {
+    background-color: $myLightGrey;
+  }
+}

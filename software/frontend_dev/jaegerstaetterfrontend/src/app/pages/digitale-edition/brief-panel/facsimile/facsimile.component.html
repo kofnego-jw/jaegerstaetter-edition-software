@@ -1,0 +1,7 @@
+<div *ngIf="resource" class="briefAnsichtComponent" #FullComponent>
+  <div class="buttons left" *ngIf="panelPosition === PanelPosition.ONE"></div>
+  <div class="innerViewPort">
+    <div [id]="viewerId" class="textView"></div>
+  </div>
+  <div class="buttons right" *ngIf="panelPosition === PanelPosition.TWO"></div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Verzeichnis der Personen</h2>
+      <div *ngIf="personList.length">
+        <app-person-info-list [personList]="personList"></app-person-info-list>
+      </div>
+      <div *ngIf="!personList.length">
+        <p>Es gibt noch keine Einträge im Personenregister.</p>
+      </div>
+    </div>
+  </div>
+</div>

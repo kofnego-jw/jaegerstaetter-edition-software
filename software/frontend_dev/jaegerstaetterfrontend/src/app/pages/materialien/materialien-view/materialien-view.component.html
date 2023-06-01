@@ -1,0 +1,14 @@
+<div class="mainMain" *ngIf="commentDoc">
+  <div class="columnLeft">
+    <div
+      class="fontsizeAdjustable"
+      [innerHTML]="safeHtml(commentDoc.content)"
+    ></div>
+  </div>
+  <div class="columnRight">
+    <nav class="toc">
+      <h1>Inhaltsverzeichnis</h1>
+      <div [innerHTML]="safeHtml(commentDoc.toc)"></div>
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{ teiDocument.documentPath }}</h4>
+</div>
+<div class="modal-body">
+  <div>
+    <pre><code [innerText]="teiDocument.xmlContent">
+    </code></pre>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-danger"
+    (click)="publish()"
+    *ngIf="isPreview"
+  >
+    Zur Exist-Datenbank hochladen
+  </button>
+  <button type="button" class="btn btn-primary" (click)="close()">
+    Schließen
+  </button>
+</div>

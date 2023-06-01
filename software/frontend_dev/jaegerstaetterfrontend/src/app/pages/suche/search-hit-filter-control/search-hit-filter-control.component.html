@@ -1,0 +1,44 @@
+<div *ngIf="searchResult">
+  <!-- class="columnRight sticky-2"
+      style="height: 100%; margin-top: -57px; padding-top: 57px"
+    > -->
+  <div class="title">Suche Filtern</div>
+
+  <div class="filters">
+    <app-filter-controller
+      [category]="Category.TIMEPERIOD"
+      title="Lebensabschnitte"
+      [filters]="periodFilters"
+    ></app-filter-controller>
+
+    <app-filter-controller
+      [category]="Category.AUTHOR"
+      title="Verfasser*in"
+      [filters]="authorFilters"
+    ></app-filter-controller>
+
+    <app-filter-controller
+      [category]="Category.RECIPIENT"
+      title="Empfänger*in"
+      [filters]="recipientFilters"
+    ></app-filter-controller>
+
+    <app-filter-controller
+      [category]="Category.PLACE"
+      title="Entstehungsort"
+      [filters]="placeFilters"
+    ></app-filter-controller>
+
+    <app-filter-controller
+      [category]="Category.OBJECTTYPE"
+      title="Schrifttyp"
+      [filters]="objectTypeFilters"
+    ></app-filter-controller>
+
+    <div class="filterReset">
+      <span class="pointer" (click)="clearAllFilters()"
+        >Filter zurücksetzen</span
+      >
+    </div>
+  </div>
+</div>

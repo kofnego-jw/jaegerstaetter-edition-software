@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title">Informationen</h4>
+</div>
+<div class="modal-body">
+  <div *ngIf="entry">
+    <p>{{ entry.generatedName }}</p>
+    <table *ngIf="entry">
+      <tr *ngIf="entry.note">
+        <th>Anmerkungen</th>
+        <td>{{ entry.note }}</td>
+      </tr>
+    </table>
+    <p class="text-end">
+      Zum
+      <a class="pointer golden" (click)="gotoRegistry()">Registereintrag</a>
+    </p>
+  </div>
+</div>

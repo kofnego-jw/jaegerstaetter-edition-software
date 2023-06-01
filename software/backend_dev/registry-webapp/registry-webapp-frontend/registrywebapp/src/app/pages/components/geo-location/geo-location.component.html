@@ -1,0 +1,14 @@
+<div *ngIf="placeInfo?.geoLocation">
+  <button class="btn btn-sm btn-primary" (click)="openGeoLocationModal()">
+    Karte
+  </button>
+  <button class="btn btn-sm btn-danger" (click)="removeGeoLocation()">
+    Löschen
+  </button>
+  <br />
+  <span class="text-sm">
+    {{ placeInfo?.geoLocation?.latitude | number: "1.3" }} /
+    {{ placeInfo?.geoLocation?.longitude | number: "1.3" }}
+  </span>
+</div>
+<div *ngIf="!placeInfo?.geoLocation">&dash;</div>

@@ -1,0 +1,25 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Willkommen</title>
+            </titleStmt>
+            <publicationStmt>
+                <p>This is an open access work licensed under a creative commons attribution 4.0
+                    international license
+                </p>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Own work</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="Lesefassung">
+                <head>Die Edition</head>
+                <p>Information über die Edition ...</p>
+            </div>
+        </body>
+    </text>
+</TEI>

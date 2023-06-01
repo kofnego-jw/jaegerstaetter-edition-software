@@ -1,0 +1,7 @@
+This directory stores all stylesheets necessary for the edition.
+
+Directory structure:
+/xsltstylesheets/
+/xsltstylesheets/lucene/                    Stylesheets for search engine
+/xsltstylesheets/metadata/                  Stylesheets for metadata information
+/xsltstylesheets/representation/            Stylesheets for the presentation of data

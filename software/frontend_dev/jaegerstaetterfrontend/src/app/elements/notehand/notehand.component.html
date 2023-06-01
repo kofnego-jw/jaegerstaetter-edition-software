@@ -1,0 +1,9 @@
+<span
+  *ngIf="initFinished"
+  class="ffji-notehand"
+  [ngStyle]="{ color: textColor }"
+  [tooltip]="'Hand: ' + hand"
+  containerClass="ffji-tooltip"
+>
+  <ng-content></ng-content>
+</span>

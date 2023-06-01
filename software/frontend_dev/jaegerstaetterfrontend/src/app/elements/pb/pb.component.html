@@ -1,0 +1,20 @@
+<span #pageBreak>&#x200B;</span>
+<div *ngIf="mode == 'dipl'">
+  <span
+    class="ffji-pb pointer"
+    tooltip="Seitenumbruch"
+    containerClass="ffji-tooltip"
+    (click)="viewThisPage(true)"
+    >[{{ _pageNumber }}]</span
+  >
+</div>
+<span
+  *ngIf="mode !== 'dipl'"
+  [hidden]="!show"
+  class="ffji-pb pointer"
+  tooltip="Seitenumbruch"
+  containerClass="ffji-tooltip"
+  [ngClass]="{ breakBefore: mode == 'dipl' }"
+  (click)="viewThisPage(true)"
+  >[{{ _pageNumber }}]</span
+>

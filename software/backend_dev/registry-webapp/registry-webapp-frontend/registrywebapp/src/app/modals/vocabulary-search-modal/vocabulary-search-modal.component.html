@@ -1,0 +1,177 @@
+<div class="modal-header">
+  <h2>Normdaten-Suche</h2>
+</div>
+<div class="modal-body">
+  <div class="text-center">
+    <b>Ausgewählte Normdaten:</b>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Datenquelle</th>
+          <th>ID</th>
+          <th>Daten-Titel</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rec of selectedVocabularies">
+          <td>{{ rec.authority }}</td>
+          <td>{{ rec.controlledId }}</td>
+          <td>{{ rec.preferredTitle }}</td>
+          <td>
+            <button
+              class="btn btn-sm"
+              (click)="previewVocabulary(rec)"
+              tooltip="Anzeigen"
+            >
+              <fa-icon [icon]="faSearch"></fa-icon>
+            </button>
+            <button
+              class="btn btn-sm btn-secondary"
+              (click)="selectPreferredName(rec)"
+              tooltip="Name übernehmen"
+            >
+              <fa-icon [icon]="faCheck"></fa-icon>
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="removeVocabulary(rec)"
+              tooltip="Aus Liste löschen"
+            >
+              <fa-icon [icon]="faMinusCircle"></fa-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="py-2 float-end">
+    <button class="btn btn-sm btn-secondary" (click)="cancel()">
+      Abbrechen
+    </button>
+    <button class="btn btn-sm btn-danger" (click)="select()">Speichern</button>
+  </div>
+  <div>
+    <p>Vokabel-Typ: <span [innerHTML]="type"></span></p>
+    <p>Key-Wert: <span [innerHTML]="key"></span></p>
+    <form class="form" [formGroup]="queryForm" (ngSubmit)="performSearch()">
+      <div class="form-group">
+        <label for="queryFormQueryString">Suche nach:</label>
+        <input class="form-control" formControlName="queryString" />
+      </div>
+      <button class="btn btn-primary" (click)="performSearch()">Suche</button>
+    </form>
+  </div>
+  <div>
+    <tabset>
+      <tab heading="GND">
+        <h4>Treffer in GND:</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Hauptname</th>
+              <th>Weitere Namen</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rec of gndHits">
+              <td>{{ rec.id }}</td>
+              <td>{{ rec.preferredName }}</td>
+              <td>
+                <span *ngFor="let name of rec.names">{{ name }} |</span>
+              </td>
+              <td>
+                <button
+                  class="btn btn-sm btn-primary"
+                  (click)="previewGnd(rec)"
+                >
+                  <fa-icon [icon]="faSearch"></fa-icon>
+                </button>
+                <button class="btn btn-sm" (click)="addGndVocabulary(rec)">
+                  <fa-icon [icon]="faPlusCircle"></fa-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button
+          (click)="nextGndPage()"
+          class="btn btn-primary"
+          [disabled]="gndPageNumber < 0"
+        >
+          Weitere Treffer laden
+        </button>
+      </tab>
+      <tab heading="Geonames">
+        <h4>Treffer in Geonames:</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Hauptname</th>
+              <th>Weitere Namen</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rec of geonamesHits">
+              <td>{{ rec.controlledVocabulary.controlledId }}</td>
+              <td>{{ rec.controlledVocabulary.preferredTitle }}</td>
+              <td>
+                <span *ngFor="let name of rec.controlledVocabulary.titles"
+                  >{{ name }} |</span
+                >
+              </td>
+              <td>
+                <button
+                  class="btn btn-sm btn-primary"
+                  (click)="previewGeonames(rec)"
+                >
+                  <fa-icon [icon]="faSearch"></fa-icon>
+                </button>
+                <button class="btn btn-sm" (click)="addGeonamesVocabulary(rec)">
+                  <fa-icon [icon]="faPlusCircle"></fa-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </tab>
+      <tab heading="Wikidata">
+        <h4>Treffer in Wikidata:</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Hauptname</th>
+              <th>Weitere Namen</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rec of wikidataHits">
+              <td>{{ rec.controlledId }}</td>
+              <td>{{ rec.preferredTitle }}</td>
+              <td>
+                <span *ngFor="let name of rec.titles">{{ name }} |</span>
+              </td>
+              <td>
+                <button
+                  class="btn btn-sm btn-primary"
+                  (click)="previewVocabulary(rec)"
+                >
+                  <fa-icon [icon]="faSearch"></fa-icon>
+                </button>
+                <button class="btn btn-sm" (click)="addVocabulary(rec)">
+                  <fa-icon [icon]="faPlusCircle"></fa-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </tab>
+    </tabset>
+  </div>
+</div>

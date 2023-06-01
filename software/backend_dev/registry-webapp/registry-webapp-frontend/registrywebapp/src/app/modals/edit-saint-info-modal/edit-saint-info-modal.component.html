@@ -1,0 +1,127 @@
+<div class="modal-header">
+  <h2>Informationen zum/r Heiligen</h2>
+</div>
+<div class="modal-body text-center">
+  <div class="row">
+    <div class="col">
+      <form (submit)="submitForm()" [formGroup]="saintInfoForm">
+        <table class="table layoutFixed text-left">
+          <tr>
+            <th width="20%">Key</th>
+            <td width="40%" [innerHTML]="saintInfo.key"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="key" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Bezeichnung</th>
+            <td width="40%" [innerHTML]="saintInfo.title"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="title" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Bevorzugter Anzeige-Name</th>
+            <td width="40%" [innerHTML]="saintInfo.preferredName"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="preferredName" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Link zum Heiligenlexikon</th>
+            <td width="40%" [innerHTML]="saintInfo.encyclopediaLink"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="encyclopediaLink" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Nachname</th>
+            <td width="40%" [innerHTML]="saintInfo.surname"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="surname" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Vorname</th>
+            <td width="40%" [innerHTML]="saintInfo.forename"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="forename" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Zusätzliche Namen</th>
+            <td width="40%" [innerHTML]="saintInfo.addNames"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="addNames" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Rollenbezeichnungen</th>
+            <td width="40%" [innerHTML]="saintInfo.rolenames"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="rolenames" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Geburtsdatum</th>
+            <td width="40%" [innerHTML]="saintInfo.birthDate"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="birthDate" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Geburtsort</th>
+            <td width="40%" [innerHTML]="saintInfo.birthPlace"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="birthPlace" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Wirkorte</th>
+            <td width="40%" [innerHTML]="saintInfo.residences"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="residences" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Sterbedatum</th>
+            <td width="40%" [innerHTML]="saintInfo.deathDate"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="deathDate" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Sterbeort</th>
+            <td width="40%" [innerHTML]="saintInfo.deathPlace"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="deathPlace" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Geschlecht</th>
+            <td width="40%" [innerHTML]="saintInfo.sex"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="sex" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Anmerkung</th>
+            <td width="40%" [innerHTML]="saintInfo.note"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="note" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">To Do</th>
+            <td width="40%" [innerHTML]="saintInfo.todo"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="todo" />
+            </td>
+          </tr>
+        </table>
+        <button class="btn btn-primary" type="submit">Aktualisieren</button>
+        <button class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
+      </form>
+    </div>
+  </div>
+</div>

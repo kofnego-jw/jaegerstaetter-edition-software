@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Weltkarte</h2>
+      <p>
+        Hier werden alle Orte auf der Karte dargestellt, die Koordinaten
+        aufweisen.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div
+        style="height: 450px"
+        leaflet
+        [leafletOptions]="options"
+        [leafletMarkerCluster]="layers"
+      ></div>
+    </div>
+  </div>
+</div>

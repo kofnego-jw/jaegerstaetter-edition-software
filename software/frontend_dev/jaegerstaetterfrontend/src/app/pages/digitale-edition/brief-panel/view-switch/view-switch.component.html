@@ -1,0 +1,26 @@
+<div class="viewSwitch">
+  <span
+    class="switchItem pointer"
+    [ngClass]="{ active: activeView === BriefPanelView.FACSIMILE }"
+    (click)="setActive(BriefPanelView.FACSIMILE)"
+    >Faksimile</span
+  >
+  <span
+    class="switchItem pointer"
+    [ngClass]="{ active: activeView === BriefPanelView.DIPLO }"
+    (click)="setActive(BriefPanelView.DIPLO)"
+    >Diplomatische Umschrift</span
+  >
+  <span
+    class="switchItem pointer"
+    [ngClass]="{ active: activeView === BriefPanelView.NORM }"
+    (click)="setActive(BriefPanelView.NORM)"
+    >Lesefassung</span
+  >
+  <span
+    class="switchItem pointer"
+    [ngClass]="{ active: activeView === BriefPanelView.XML }"
+    (click)="setActive(BriefPanelView.XML)"
+    >XML</span
+  >
+</div>

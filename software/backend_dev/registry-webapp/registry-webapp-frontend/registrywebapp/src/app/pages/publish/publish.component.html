@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>TEI-Dokument generieren</h2>
+      <div *ngIf="registryDocs.length">
+        <h3>Publizierte Daten</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Version</th>
+              <th>Zeitpunkt der Veröffentlichung</th>
+              <th>Pfad</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doc of registryDocs">
+              <td>{{ doc.version }}</td>
+              <td>{{ doc.creationTimestamp | date: "yyyy-MM-dd HH:mm" }}</td>
+              <td>{{ doc.documentPath }}</td>
+              <td>
+                <button class="btn btn-primary" (click)="viewDoc(doc, false)">
+                  Anzeigen
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="!registryDocs.length">
+        <p>Register-Daten sind noch nicht öffentlich verfügbar.</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary" (click)="peekTeiDoc()">
+        Ein neues Register-Dokument veröffentlichen
+      </button>
+    </div>
+  </div>
+</div>

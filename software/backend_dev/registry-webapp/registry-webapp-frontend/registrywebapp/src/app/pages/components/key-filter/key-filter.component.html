@@ -1,0 +1,13 @@
+<form class="d-flex" (submit)="setKeyFilter()">
+  <input
+    class="form-control me-2"
+    type="search"
+    placeholder="Nach Keywert filtern"
+    aria-label="Search"
+    name="keyFilterInput"
+    #keyFilterInput
+    [(ngModel)]="keyFilter"
+    (change)="setKeyFilter()"
+  />
+  <button class="btn btn-outline-success" type="submit">Filter</button>
+</form>

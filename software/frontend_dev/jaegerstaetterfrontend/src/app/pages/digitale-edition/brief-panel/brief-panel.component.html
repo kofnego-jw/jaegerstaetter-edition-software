@@ -1,0 +1,25 @@
+<div class="briefPanel">
+  <app-view-switch [(activeView)]="activeView"></app-view-switch>
+  <div class="viewPort">
+    <app-facsimile
+      [panelPosition]="panelPosition"
+      [resource]="resource"
+      *ngIf="activeView === BriefPanelView.FACSIMILE"
+    ></app-facsimile>
+    <app-diplo
+      [panelPosition]="panelPosition"
+      [resource]="resource"
+      *ngIf="activeView === BriefPanelView.DIPLO"
+    ></app-diplo>
+    <app-norm
+      [panelPosition]="panelPosition"
+      [resource]="resource"
+      *ngIf="activeView === BriefPanelView.NORM"
+    ></app-norm>
+    <app-xml-view
+      [panelPosition]="panelPosition"
+      [resource]="resource"
+      *ngIf="activeView === BriefPanelView.XML"
+    ></app-xml-view>
+  </div>
+</div>

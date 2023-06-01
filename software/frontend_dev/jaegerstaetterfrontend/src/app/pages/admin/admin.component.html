@@ -1,0 +1,44 @@
+<div class="mainMain">
+  <div class="columnLeft">
+    <div class="fontsizeAdjustable">
+      <h1>Admin-Bereich</h1>
+      <p>Zur <a routerLink="stat-report">XML Statistik</a></p>
+      <p>
+        Hier können Sie die Daten aktualisieren, die in dieser Website angezeigt
+        werden.
+      </p>
+      <p>Um die Daten zu aktualisieren, gehen Sie bitte wie folgt vor:</p>
+      <p>...</p>
+      <h2>Admin-Aktionen</h2>
+      <p>
+        Was wollen Sie tun? Bitte beachten Sie, dass diese Vorgänge mehrere
+        Minuten dauern können.
+      </p>
+      <ul>
+        <li>
+          Die Preview-Site löschen und alle Daten durch jene der Edition
+          ersetzen.
+          <button class="btn btn-danger" (click)="showPasswordFormForClone()">
+            GO
+          </button>
+        </li>
+        <li>
+          Die Preview-Site durch die Editionsite ersetzen und die Daten in
+          "ingest" einlesen.
+          <button
+            class="btn btn-danger"
+            (click)="showPasswordFormForCloneAndIngest()"
+          >
+            GO
+          </button>
+        </li>
+        <li>
+          Die Daten in ingest als neue Version für die Edition einspeichern.
+          <button class="btn btn-danger" (click)="showPasswordFormForIngest()">
+            GO
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

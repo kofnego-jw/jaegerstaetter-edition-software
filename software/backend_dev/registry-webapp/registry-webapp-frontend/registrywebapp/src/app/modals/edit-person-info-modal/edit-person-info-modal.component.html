@@ -1,0 +1,120 @@
+<div class="modal-header">
+  <h2>Informationen zur Person</h2>
+</div>
+<div class="modal-body text-center">
+  <div class="row">
+    <div class="col">
+      <form (submit)="submitForm()" [formGroup]="personInfoForm">
+        <table class="table layoutFixed text-left">
+          <tr>
+            <th width="20%">Key</th>
+            <td width="40%" [innerHTML]="personInfo.key"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="key" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Bevorzugte Bezeichnung</th>
+            <td width="40%" [innerHTML]="personInfo.preferredName"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="preferredName" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Nachname</th>
+            <td width="40%" [innerHTML]="personInfo.surname"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="surname" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Vorname</th>
+            <td width="40%" [innerHTML]="personInfo.forename"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="forename" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Nationalität</th>
+            <td width="40%" [innerHTML]="personInfo.nationality"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="nationality" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Zusätze</th>
+            <td width="40%" [innerHTML]="personInfo.addnameString"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="addNames" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Rollenbezeichnungen</th>
+            <td width="40%" [innerHTML]="personInfo.rolenameString"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="roleNames" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Geschlecht</th>
+            <td width="40%" [innerHTML]="personInfo.sex"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="sex" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Geburtsdatum</th>
+            <td width="40%" [innerHTML]="personInfo.birthDate"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="birthDate" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Geburtsort</th>
+            <td width="40%" [innerHTML]="personInfo.birthPlace"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="birthPlace" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Wirkorte</th>
+            <td width="40%" [innerHTML]="personInfo.residenceString"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="residences" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Sterbedatum</th>
+            <td width="40%" [innerHTML]="personInfo.deathDate"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="deathDate" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Sterbeort</th>
+            <td width="40%" [innerHTML]="personInfo.deathPlace"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="deathPlace" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Anmerkung</th>
+            <td width="40%" [innerHTML]="personInfo.note"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="note" />
+            </td>
+          </tr>
+          <tr>
+            <th width="20%">Interne Notiz</th>
+            <td width="40%" [innerHTML]="personInfo.internalNotes"></td>
+            <td width="40%">
+              <input class="form-control" formControlName="internalNotes" />
+            </td>
+          </tr>
+        </table>
+        <button class="btn btn-primary" type="submit">Aktualisieren</button>
+        <button class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
+      </form>
+    </div>
+  </div>
+</div>

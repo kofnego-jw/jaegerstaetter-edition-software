@@ -1,0 +1,87 @@
+<div class="mainMainWidth" *ngIf="resourcePaginationInfo">
+  <h1 class="mainTitle" [innerHTML]="selectedCorpus.title"></h1>
+  <app-anchor id="verzeichnisTop"></app-anchor>
+</div>
+
+<div class="mainWholeWidth" style="padding: 57px 0 97px">
+  <div class="mainPanel">
+    <div class="columnLeft">
+      <div *ngIf="resourcePaginationInfo">
+        <app-document-pagination
+          [totalCount]="totalHits"
+          [fromNumber]="fromNumber"
+          [toNumber]="toNumber"
+          [sortableFields]="sortFields"
+          [sortByField]="sortField"
+          [sortAsc]="sortAsc"
+          [pageNumber]="pageNumber"
+          [pageSize]="pageSize"
+          [maxPageCount]="maxPageCount"
+          (selectPage)="setPage($event)"
+          (selectSort)="setSort($event)"
+          (changeSortDir)="changeSortDir($event)"
+        ></app-document-pagination>
+        <div class="middlePanel">
+          <div class="previews">
+            <app-resource-preview
+              *ngFor="let resource of shownResources"
+              [resource]="resource"
+            >
+            </app-resource-preview>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="columnRight sticky-2"
+      style="height: 100%; margin-top: -57px; padding-top: 57px"
+    >
+      <div class="title">Suche Filtern</div>
+
+      <div class="filters">
+        <app-filter-controller
+          [category]="Category.CORPUS"
+          title="Korpus"
+          [filters]="categoryFilters"
+          *ngIf="!hasSpecialCorresp"
+        ></app-filter-controller>
+
+        <app-filter-controller
+          [category]="Category.TIMEPERIOD"
+          title="Lebensabschnitte"
+          [filters]="periodFilters"
+        ></app-filter-controller>
+
+        <app-filter-controller
+          [category]="Category.AUTHOR"
+          title="Verfasser*in"
+          [filters]="authorFilters"
+        ></app-filter-controller>
+
+        <app-filter-controller
+          [category]="Category.RECIPIENT"
+          title="Empfänger*in"
+          [filters]="recipientFilters"
+        ></app-filter-controller>
+
+        <app-filter-controller
+          [category]="Category.PLACE"
+          title="Entstehungsort"
+          [filters]="placeFilters"
+        ></app-filter-controller>
+
+        <app-filter-controller
+          [category]="Category.OBJECTTYPE"
+          title="Schrifttyp"
+          [filters]="objectTypeFilters"
+        ></app-filter-controller>
+
+        <div class="filterReset">
+          <span class="pointer" (click)="clearFilters()"
+            >Filter zurücksetzen</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

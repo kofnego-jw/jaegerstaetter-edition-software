@@ -1,0 +1,12 @@
+<div class="pointer" (click)="navigateToGallery()">
+  <div class="headerPart">
+    <img [src]="'assets/buttons/' + type + '.png'" alt="Button caption image" />
+  </div>
+  <div class="mainPart">
+    <div class="topLine" [innerHTML]="documentCount"></div>
+    <div class="bottomLine">{{ title }}</div>
+  </div>
+  <div class="footerPart">
+    <div class="column">zu den Einträgen</div>
+  </div>
+</div>

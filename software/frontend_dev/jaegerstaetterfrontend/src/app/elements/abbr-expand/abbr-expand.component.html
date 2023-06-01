@@ -1,0 +1,8 @@
+<span class="choice pointer" (click)="toggleShowExpand()">
+  <span class="original" [hidden]="showExpand">
+    <ng-content select="[abbr]"></ng-content>
+  </span>
+  <span class="amended" [hidden]="!showExpand">
+    <ng-content select="[expan]"></ng-content>
+  </span>
+</span>

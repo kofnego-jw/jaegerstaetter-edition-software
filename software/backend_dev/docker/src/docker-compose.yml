@@ -1,0 +1,72 @@
+version: '3.6'
+
+services:
+
+  ffji-exist:
+    image: existdb/existdb:release
+    container_name: ffji-exist
+    restart: always
+    ports:
+      - "12080:8080"
+      - "12443:8443"
+    networks:
+      - ffji-backend
+    volumes:
+      - "./exist/data:${EXIST_HOME}/${EXIST_DATA_DIR}"
+      - "./exist/config:${EXIST_HOME}/${EXIST_CONFIG_DIR}"
+
+  ffji-redis:
+    image: redis:7.0.11-alpine
+    restart: always
+    ports:
+      - "60379:6379"
+    networks:
+      - ffji-backend
+    volumes:
+      - "./redis-cache:/data"
+
+  ffji-registry:
+    container_name: ffji-registry
+    depends_on:
+      - ffji-exist
+    build: "./registry"
+    ports:
+      - "60730:60730"
+    networks:
+      - ffji-backend
+    volumes:
+      - "./registry/app:/app"
+      - "./workingDir:/app/workingDir"
+
+  ffji-edition:
+    container_name: ffji-edition
+    depends_on:
+      - ffji-exist
+      - ffji-redis
+    build: "./edition"
+    ports:
+      - "60725:60725"
+    networks:
+      - ffji-backend
+    volumes:
+      - "./edition/app:/app"
+      - "./workingDir:/app/workingDir"
+
+  ffji-preview:
+    container_name: ffji-preview
+    depends_on:
+      - ffji-exist
+      - ffji-redis
+    build: "./preview"
+    ports:
+      - "60726:60726"
+    networks:
+      - ffji-backend
+    volumes:
+      - "./preview/app:/app"
+      - "./workingDir:/app/workingDir"
+
+networks:
+  ffji-backend:
+    name: ffji-backend
+    driver: bridge
